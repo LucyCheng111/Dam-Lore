@@ -285,6 +285,12 @@ hr {
   height: 75%; /* Most of the screen height */
 }
 
+.tour-map {
+  margin: auto;
+  width: 60%;
+  height: 60%;
+}
+
 .map {
   width: 100%;
   height: 100%;
@@ -308,3 +314,26 @@ hr {
   font-size: 1.2rem;
   text-align: center;
 }
+
+/* tour page setups */
+.tour-description {
+  width: 60%;
+  height: auto;
+  padding: 5px;
+  margin: auto;
+  display: flex;
+}
+
+.tour-img {
+  width: 250px;
+}
+
+.audiobar {
+  width: 60%;
+  margin: auto;
+}
+
+
+
+
+
