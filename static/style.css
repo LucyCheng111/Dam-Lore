@@ -334,6 +334,38 @@ hr {
 }
 
 
+/* miision page */
+.mission {
+  display: flex;
+} 
+
+.mission_photo {
+  width: 400px;       
+  height: 400px;   
+  overflow: hidden;          
+  display: flex;  
+  border: 2px solid #DC4405;  
+  position: relative;
+  left: 10%;
+
+}
+
+.m_box {
+  display: column;
+  margin: 20px;
+  position: relative;
+  left:20%;
+}
+
+.mission_text {
+  
+  max-width: 600px;
+  font-size: 1.2rem;
+}
+
+
+
+
 
 
 
