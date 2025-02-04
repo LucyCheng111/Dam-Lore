@@ -7,7 +7,7 @@
 /* General Layout */
 body {
   font-family: "Merriweather", sans-serif; /* Workhorse font */
-  background-color: #f9f9f9;
+  background-color: #121218;
   color: #000;
   margin: 0;
   padding: 0;
@@ -32,7 +32,7 @@ h2 {
 
 /* Hero Section */
 .hero {
-  background-color: #f9f9f9;
+  background-color: #1a1a23;
   text-align: left;
   padding: 0px 20px; /* Increased padding */
   border-bottom: 4px solid #000;
@@ -56,7 +56,7 @@ h2 {
 }
 
 .lore-title {
-  color: #000; /* Black for Lore */
+  color: #d89e52; /* Black for Lore */
 }
 
 .hero-content p {
