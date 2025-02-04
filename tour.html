@@ -4,38 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Campus Tour - Dam Lore</title>
-  <link rel="stylesheet" href="./static/style.css">
+  <link rel="stylesheet" href="./static/style.css"> <!-- Link to your stylesheet -->
 </head>
 <body>
-  <p></p>
+  
+  <!--Add header here-->
+    
   <!-- Map Section -->
   <div class="tour-map">
-    <iframe
-      class="map"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.839093102827!2d-123.2813823!3d44.5637807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54c040b24f771007%3A0xffcf65b4dc9883f!2sReser%20Stadium!5e0!3m2!1sen!2sus!4v1611965645455!5m2!1sen!2sus"
-      allowfullscreen=""
-      loading="lazy"
-    ></iframe>
+    <iframe id="map" class="map" allowfullscreen="" loading="lazy"></iframe> <!-- Empty src, will be set dynamically -->
   </div>
 
   <!-- Image and Description Section -->
   <div class="tour-description">
-    <img class="tour-img" src="./static/reser.jpg" alt="Campus Image">
+    <img id="tour-img" class="tour-img" src="" alt="Campus Image"> <!-- Empty src, will be set dynamically -->
     <div>
-    <h3>This is a location!</h3>
-    <p>This is a brief description of this stop on the tour</p>
+      <h3 id="tour-title">This is a location!</h3> <!-- Dynamic title -->
+      <p id="tour-description">This is a brief description of this stop on the tour.</p> <!-- Dynamic description -->
     </div>
   </div>
 
+  <!-- Audio Section -->
   <div class="audiobar">
-    <audio style="width: 100%" id="audio" controls>
+    <audio id="audio" style="width: 100%" controls>
       Your browser does not support this feature
     </audio>
   </div>
-  <!-- Info Section -->
+
+  <!-- Navigation Buttons -->
   <div class="info-section">
-    <button> next stop </button>
+    <button class="prev-btn" id="prev">Prev stop</button>
+    <button class="next-btn" id="next">Next stop</button>
   </div>
 
+  <!--Add footer here-->
+  <footer class="footer">
+    <p>&copy; 2025 Dam Lore. All Rights Reserved.</p>
+    <div class="footer-links">
+    </div>
+  </footer>
+
+  <script src="ctour.js"></script> <!-- Link to your JavaScript -->
 </body>
 </html>

@@ -226,6 +226,7 @@ hr {
   padding: 20px 0;
   background-color: #000;
   color: #fff;
+  text-align: auto;
 }
 
 .footer-links a {
@@ -299,7 +300,6 @@ hr {
 
 /* Info Section */
 .info-section {
-  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%; /* Full width for the bottom ribbon */
@@ -313,6 +313,11 @@ hr {
   box-sizing: border-box;
   font-size: 1.2rem;
   text-align: center;
+  margin-top: auto;
+}
+
+.tour-map, .tour-description, .audiobar {
+  flex-grow: 1;
 }
 
 /* tour page setups */
@@ -326,44 +331,38 @@ hr {
 
 .tour-img {
   width: 250px;
+  margin-right: 20px
 }
 
 .audiobar {
-  width: 60%;
-  margin: auto;
+  width: 30%;
+  margin: 30px auto 20px;
 }
 
-
-/* miision page */
-.mission {
-  display: flex;
-} 
-
-.mission_photo {
-  width: 400px;       
-  height: 400px;   
-  overflow: hidden;          
-  display: flex;  
-  border: 2px solid #DC4405;  
-  position: relative;
-  left: 10%;
-
+/* Style for buttons */
+button {
+  background-color: #DC4405; /* OSU Orange */
+  color: white; /* White text */
+  font-size: 1.2rem; /* Larger font */
+  padding: 10px 20px; /* Space around text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth color transition */
 }
 
-.m_box {
-  display: column;
-  margin: 20px;
-  position: relative;
-  left:20%;
+button:hover {
+  background-color: #C13705; /* Darker orange on hover */
 }
 
-.mission_text {
-  
-  max-width: 600px;
-  font-size: 1.2rem;
+/* Specific styles for prev and next buttons */
+.prev-btn {
+  margin-right: 10px; /* Space between buttons */
 }
 
-
+.next-btn {
+  margin-left: 10px; /* Space between buttons */
+}
 
 
 
