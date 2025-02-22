@@ -222,12 +222,16 @@ hr {
 
 /* Footer */
 .footer {
-  text-align: center;
-  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   background-color: #000;
   color: #fff;
-  text-align: auto;
+  text-align: center;
+  padding: 20px 0;
 }
+
 
 .footer-links a {
   color: #DC4405;
@@ -300,20 +304,24 @@ hr {
 
 /* Info Section */
 .info-section {
-  bottom: 0;
+  position: fixed;
+  bottom: 30px;
   left: 0;
   width: 100%; /* Full width for the bottom ribbon */
   height: 25%; /* Remaining screen height */
   background-color: #f9f9f9;
-  border-top: 2px solid #DC4405; /* OSU Orange border */
+}
+
+.button-section{
+  position: fixed;
+  bottom: 90px;
+  width: 100%;
+  height: 10%;
+  background-color: #f9f9f9;
+  border-top: 2px solid #DC4405;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: auto;
 }
 
 .tour-map, .tour-description, .audiobar {
@@ -363,8 +371,3 @@ button:hover {
 .next-btn {
   margin-left: 10px; /* Space between buttons */
 }
-
-
-
-
-
