@@ -4,59 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dam Lore - Home</title>
-  <link rel="stylesheet" href="./static/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <style>
+    #map {position:absolute; top:0; bottom:0; left:0; right:0;}
+  </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1><span class="dam-title">DAM</span> <span class="lore-title">LORE</span></h1>
-      <div class="hero-links">
-        <a href="about.html">About</a>
-        <a href="history.html">History</a>
-        <a href="tour.html">Tour</a>
-      </div>
-    </div>
-  </header>
-
-  <div class="search-ribbon">
-    <h2>Search</h2>
-    <div class="search-bar">
-      <input type="text" placeholder="Search locations...">
-    </div>
-    <div class="top-searched">
-      <h3>Top Searched</h3>
-      <ul>
-        <li>Location 1</li>
-        <li>Location 2</li>
-        <li>Location 3</li>
-        <li>Location 4</li>
-        <li>Location 5</li>
-      </ul>
-    </div>
-  </div>
-
   <!-- Map Section -->
-  <div class="map-container">
-    <iframe
-      class="map"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.839093102827!2d-123.2813823!3d44.5637807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54c040b24f771007%3A0xffcf65b4dc9883f!2sReser%20Stadium!5e0!3m2!1sen!2sus!4v1611965645455!5m2!1sen!2sus"
-      allowfullscreen=""
-      loading="lazy"
-    ></iframe>
-  </div>
+  <div id = "map"></div>
+    <script>
+      var map = L.map('map').setView([0, 0], 1);
 
-  <!-- Footer -->
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2025 Dam Lore. All Rights Reserved.</p>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="map.html">Map</a>
-        <a href="about.html">About</a>
-      </div>
-    </footer>
+      L.tileLayer('https://api.maptiler.com/maps/toner-v2/{z}/{x}/{y}.png?key=dKR4iebB67ZPwOve2sdR', {
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+      }).addTo(map);
+    </script>
 
 </body>
 </html>
