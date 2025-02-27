@@ -6,8 +6,9 @@
   <title>Dam Lore - Home</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/osmtogeojson/3.0.0/osmtogeojson.min.js"></script>
   <style>
-    #map {position:absolute; top:0; bottom:0; left:0; right:0;}
+    #map {height: 100%; width: 100%; position:absolute; top:0; bottom:0; left:0; right:0;}
   </style>
 </head>
 <body>
@@ -15,12 +16,125 @@
   <!-- Map Section -->
   <div id = "map"></div>
     <script>
-      var map = L.map('map').setView([0, 0], 1);
+      var map = L.map('map').setView([44.5646, -123.2620], 18);
 
       L.tileLayer('https://api.maptiler.com/maps/toner-v2/{z}/{x}/{y}.png?key=dKR4iebB67ZPwOve2sdR', {
         attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
       }).addTo(map);
-    </script>
 
+      // Restrict map bounds (optional)
+      var bounds = L.latLngBounds(
+            [44.55, -123.29], // Southwest corner
+            [44.58, -123.23]  // Northeast corner
+        );
+        map.setMaxBounds(bounds);
+        map.on('drag', function() {
+            map.panInsideBounds(bounds, { animate: false });
+        });
+
+        // Add marker for OSU
+        L.marker([44.5646, -123.2760]).addTo(map)
+            .bindPopup('Oregon State University')
+            .openPopup();
+
+        // Define the highlight style
+        function highlightFeature(e) {
+            var layer = e.target;
+            layer.setStyle({
+                weight: 3,
+                color: "yellow",
+                fillColor: "orange",
+                fillOpacity: 0.7
+            });
+        }
+
+        // Reset to default style when not hovered
+        function resetHighlight(e) {
+            geojsonLayer.resetStyle(e.target);
+        }
+
+        // Click event to permanently highlight a building
+        function clickFeature(e) {
+            var layer = e.target;
+            layer.setStyle({
+                color: "red",
+                fillColor: "red",
+                fillOpacity: 0.9
+            });
+            layer.bindPopup(layer.feature.properties.tags.name || "Unnamed Building").openPopup();
+        }
+
+        // Fetch OSU building data from Overpass API
+        var overpassQuery = `
+            [out:json];
+            area["name"="Oregon State University"]->.osu;
+            (
+              way["building"](area.osu);
+              relation["building"](area.osu);
+            );
+            out body;
+            >;
+            out skel qt;
+        `;
+
+        var overpassURL = "https://overpass.kumi.systems/api/interpreter?data=" + encodeURIComponent(overpassQuery);
+
+        var script = document.createElement("script");
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/osmtogeojson/3.0.0/osmtogeojson.min.js";
+        script.onload = function() {
+            console.log("osmtogeojson loaded successfully!");
+            loadOSMData(); // Call the function AFTER the script loads
+        };
+        document.head.appendChild(script);
+
+        function loadOSMData() {
+            var overpassQuery = `
+                [out:json];
+                area["name"="Oregon State University"]->.osu;
+                (
+                  way["building"](area.osu);
+                  relation["building"](area.osu);
+                );
+                out body;
+                >;
+                out skel qt;
+            `;
+
+            var overpassURL = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(overpassQuery);
+
+            fetch(overpassURL)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("OSM Data:", data);
+                    console.log("osmtogeojson function exists:", typeof osmtogeojson);
+
+                    if (typeof osmtogeojson !== "function") {
+                        throw new Error("osmtogeojson is not loaded properly!");
+                    }
+
+                    var geojson = osmtogeojson(data);
+                    geojsonLayer = L.geoJSON(geojson, {
+                        style: {
+                            color: "blue",
+                            weight: 1,
+                            fillColor: "lightblue",
+                            fillOpacity: 0.5
+                        },
+                        onEachFeature: function (feature, layer) {
+                            layer.on({
+                                mouseover: highlightFeature,
+                                mouseout: resetHighlight,
+                                click: clickFeature
+                            });
+                            if (feature.properties.tags && feature.properties.tags.name) {
+                                layer.bindPopup(feature.properties.tags.name);
+                            }
+                        }
+                    }).addTo(map);
+                })
+                .catch(error => console.error("Error loading OSM data:", error));
+        }
+
+    </script>
 </body>
 </html>
