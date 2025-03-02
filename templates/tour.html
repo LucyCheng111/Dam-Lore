@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+
+{%block title%}
+Tour
+{%endblock%}  
+  <!--Add header here-->
+
+
+{%block content%}
+  <!-- Map Section -->
+  <div class="tour-map">
+    <iframe id="map" class="map" allowfullscreen="" loading="lazy"></iframe> <!-- Empty src, will be set dynamically -->
+  </div>
+
+  <!-- Image and Description Section -->
+  <div class="tour-description">
+    <img id="tour-img" class="tour-img" src="" alt="Campus Image"> <!-- Empty src, will be set dynamically -->
+    <div>
+      <h3 id="tour-title">This is a location!</h3> <!-- Dynamic title -->
+      <p id="tour-description">This is a brief description of this stop on the tour.</p> <!-- Dynamic description -->
+    </div>
+  </div>
+
+  <!-- Audio Section -->
+  <div class="audiobar">
+    <audio id="audio" style="width: 100%" controls>
+      Your browser does not support this feature
+    </audio>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="info-section">
+    <button class="prev-btn" id="prev">Prev stop</button>
+    <button class="next-btn" id="next">Next stop</button>
+  </div>  
+  
+  <script src="../static/ctour.js"></script> <!-- Link to your JavaScript -->
+{%endblock%}
+

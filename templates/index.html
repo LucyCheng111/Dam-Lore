@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dam Lore - Home</title>
-  <link rel="stylesheet" href="./static/style.css">
-</head>
-<body>
+{%extends "base.html"%}
 
+{%block title%}Home{%endblock%}
+
+{%block content%}
   <!-- Hero Section -->
   <header class="hero">
     <div class="hero-content">
       <h1><span class="dam-title">DAM</span> <span class="lore-title">LORE</span></h1>
       <p>Explore the rich history and culture of Oregon State University and the Corvallis region.</p>
       <div class="hero-links">
-        <!-- change for it to show up on engineering server -->
-        <a href="history.html">History</a>
-        <a href="/Dam-Lore/map.html">Map</a>
-        <a href="/Dam-Lore/about.html">About</a>
-        <a href="/Dam-Lore/mission.html">Our Mission</a>
+        <a href="/history">History</a>
+        <a href="/map">Map</a>
+        <a href="/about">About</a>
+        <a href="/mission">Our Mission</a>
       </div>
     </div>
   </header>
@@ -58,14 +52,4 @@
     </div>
   </section>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <p>&copy; 2025 Dam Lore. All Rights Reserved.</p>
-        <div class="footer-links">
-          <a href="/Dam-Lore/history.html">History</a>
-          <a href="/Dam-Lore/map.html">Map</a>
-          <a href="/Dam-Lore/about.html">About</a>
-        </div>
-      </footer>
-</body>
-</html>
+{%endblock%}

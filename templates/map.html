@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+
+{%block title%}Map{%endblock%}
+
+{%block content%}
+  <!-- Search Ribbon -->
+  <div class="search-ribbon">
+    <h2>Search</h2>
+    <div class="search-bar">
+      <input type="text" placeholder="Search locations...">
+    </div>
+    <div class="top-searched">
+      <h3>Top Searched</h3>
+      <ul>
+        <li>Location 1</li>
+        <li>Location 2</li>
+        <li>Location 3</li>
+        <li>Location 4</li>
+        <li>Location 5</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Map Section -->
+  <div class="map-container">
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.839093102827!2d-123.2813823!3d44.5637807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54c040b24f771007%3A0xffcf65b4dc9883f!2sReser%20Stadium!5e0!3m2!1sen!2sus!4v1611965645455!5m2!1sen!2sus"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-section">
+    <p>Select a location on the map or from the search ribbon to view more details.</p>
+  </div>
+
+{%endblock%}

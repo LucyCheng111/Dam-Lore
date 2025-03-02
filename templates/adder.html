@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Add a New Landmark</h1>
+    <form action="/adder" method="post">
+        <label for="tag">Tag:</label>
+        <select id="tag" name="tag">
+            <option value="" disabled selected>Select a tag</option>
+            <option value="landmark">Landmark</option>
+            <option value="building">Building</option>
+            <option value="event">Event</option>
+        </select>
+        
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="image_url">Image URL:</label>
+        <input type="url" id="image_url" name="image_url" placeholder="https://example.com/image.jpg">
+
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
