@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Tour - Dam Lore</title>
+  <link rel="stylesheet" href="./static/style.css"> <!-- Link to your stylesheet -->
+</head>
+<body>
+  
+  <!--Add header here-->
+    
+  <!-- Map Section -->
+  <div class="tour-map">
+    <iframe id="map" class="map" allowfullscreen="" loading="lazy"></iframe> <!-- Empty src, will be set dynamically -->
+  </div>
+
+  <!-- Image and Description Section -->
+  <div class="tour-description">
+    <img id="tour-img" class="tour-img" src="" alt="Campus Image"> <!-- Empty src, will be set dynamically -->
+    <div>
+      <h3 id="tour-title">This is a location!</h3> <!-- Dynamic title -->
+      <p id="tour-description">This is a brief description of this stop on the tour.</p> <!-- Dynamic description -->
+    </div>
+  </div>
+
+  <!-- Audio Section -->
+  <div class="audiobar">
+    <audio id="audio" style="width: 100%" controls>
+      Your browser does not support this feature
+    </audio>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="info-section">
+    <button class="prev-btn" id="prev">Prev stop</button>
+    <button class="next-btn" id="next">Next stop</button>
+  </div>
+
+  <!--Add footer here-->
+  <footer class="footer">
+    <p>&copy; 2025 Dam Lore. All Rights Reserved.</p>
+    <div class="footer-links">
+    </div>
+  </footer>
+
+  <script src="ctour.js"></script> <!-- Link to your JavaScript -->
+</body>
+</html>

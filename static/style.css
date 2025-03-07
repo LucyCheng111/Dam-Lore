@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ============================
    Importing Fonts
    ============================ */
@@ -469,3 +470,404 @@
       background: #C13705;
     }
     
+=======
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Stratum+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kievit&display=swap');
+
+/* General Layout */
+body {
+  font-family: 'Kievit', sans-serif; /* Workhorse font */
+  background-color: #f9f9f9;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  font-size: 18px; /* Default font size increased */
+}
+
+a {
+  text-decoration: none;
+  color: #DC4405; /* OSU Orange */
+}
+
+h1, h2, h3 {
+  color: #DC4405; /* OSU Orange */
+}
+
+h2 {
+  text-align: center;
+  margin-top: 50px; /* Increased space for bigger layout */
+  font-size: 2.5rem; /* Larger heading */
+}
+
+/* Hero Section */
+.hero {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 100px 20px; /* Increased padding */
+  border-bottom: 2px solid #000;
+}
+
+.hero-content h1 {
+  font-family: 'Stratum 2', sans-serif; /* Display font */
+  font-size: 6rem; /* Bigger title size */
+  margin-bottom: 30px; /* Increased margin */
+}
+
+.dam-title {
+  color: #DC4405; /* OSU Orange */
+}
+
+.lore-title {
+  color: #000; /* Black for Lore */
+}
+
+.hero-content p {
+  font-family: 'Georgia', serif; /* Serif font */
+  font-size: 1.5rem; /* Larger paragraph */
+  margin-bottom: 50px; /* Increased spacing */
+}
+
+.hero-links a {
+  margin: 0 25px; /* More spacing between links */
+  font-size: 1.5rem; /* Larger links */
+  font-weight: bold;
+}
+
+.hero-links a:hover {
+  text-decoration: underline;
+}
+
+/* Recommendations Section */
+.recommendations {
+  padding: 60px 20px; /* Increased padding */
+  background-color: #f9f9f9;
+}
+
+.recommendation-item {
+  display: flex;
+  margin-bottom: 60px; /* Increased margin between items */
+}
+
+.recommendation-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.recommendation-item img {
+  width: 400px; /* Larger images */
+  height: auto;
+  margin: 0 30px; /* Increased spacing */
+}
+
+.recommendation-text {
+  max-width: 600px; /* Wider text block */
+}
+
+.recommendation-text h3 {
+  font-size: 2rem; /* Larger title */
+  margin-top: 0;
+}
+
+.recommendation-text p {
+  font-size: 1.25rem; /* Larger paragraph text */
+}
+
+.recommendation-text a {
+  display: block;
+  margin-top: 20px; /* Increased margin */
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem; /* Larger links */
+}
+
+.recommendation-text a:hover {
+  color: #DC4405; /* OSU Orange */
+}
+
+/* About Section */
+.about {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.about h2 {
+  font-size: 3rem; /* Large title for about section */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.team-member {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.team-member:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.team-member img {
+  width: 250px; /* Slightly smaller images */
+  height: 250px;
+  border-radius: 50%; /* Circle-shaped image */
+  margin: 0 30px;
+}
+
+.member-info {
+  max-width: 600px; /* Adjusted text block width */
+}
+
+.member-info h3 {
+  font-size: 2rem; /* Larger title for each team member */
+  margin-top: 0;
+}
+
+.member-info p {
+  font-size: 1.25rem; /* Larger paragraphs */
+  margin: 10px 0;
+}
+
+.member-info p strong {
+  font-weight: bold;
+}
+
+.member-info a {
+  display: block;
+  margin-top: 20px;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.member-info a:hover {
+  color: #DC4405; /* OSU Orange */
+}
+
+/* History Section */
+.history {
+  padding: 60px 20px;
+}
+
+.history h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: #DC4405; /* OSU Orange */
+}
+
+.history-entry {
+  display: flex;
+  margin-bottom: 60px;
+  align-items: flex-start;
+}
+
+.history-entry img {
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+  border: 2px solid #000;
+}
+
+.entry-info {
+  max-width: 600px;
+}
+
+.entry-info h3 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.entry-info p {
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.entry-info p strong {
+  font-weight: bold;
+}
+
+/* Divider */
+hr {
+  border: none;
+  border-top: 2px solid #DC4405;
+  margin: 40px 0;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #000;
+  color: #fff;
+  text-align: auto;
+}
+
+.footer-links a {
+  color: #DC4405;
+  margin: 0 15px;
+  font-size: 1.25rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Search Ribbon */
+.search-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%; /* Fixed width for the left ribbon */
+  height: 100vh; /* Full viewport height */
+  background-color: #f9f9f9;
+  border-right: 2px solid #DC4405; /* OSU Orange border */
+  overflow-y: auto; /* Scroll if content exceeds height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.search-ribbon h2, .search-ribbon h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.search-bar input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.top-searched ul {
+  padding-left: 20px;
+}
+
+.top-searched li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+
+/* Map Section */
+.map-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%; /* Remainder of the screen width */
+  height: 75%; /* Most of the screen height */
+}
+
+.tour-map {
+  margin: auto;
+  width: 60%;
+  height: 60%;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Info Section */
+.info-section {
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Full width for the bottom ribbon */
+  height: 25%; /* Remaining screen height */
+  background-color: #f9f9f9;
+  border-top: 2px solid #DC4405; /* OSU Orange border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.tour-map, .tour-description, .audiobar {
+  flex-grow: 1;
+}
+
+/* tour page setups */
+.tour-description {
+  width: 60%;
+  height: auto;
+  padding: 5px;
+  margin: auto;
+  display: flex;
+}
+
+.tour-img {
+  width: 250px;
+  height: 200px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.audiobar {
+  width: 30%;
+  margin: 30px auto 20px;
+}
+
+/* Style for buttons */
+button {
+  background-color: #DC4405; /* OSU Orange */
+  color: white; /* White text */
+  font-size: 1.2rem; /* Larger font */
+  padding: 10px 20px; /* Space around text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+button:hover {
+  background-color: #C13705; /* Darker orange on hover */
+}
+
+/* Specific styles for prev and next buttons */
+.prev-btn {
+  margin-right: 10px; /* Space between buttons */
+}
+
+.next-btn {
+  margin-left: 10px; /* Space between buttons */
+}
+
+/* miision page */
+.mission {
+  display: flex;
+} 
+
+.mission_photo {
+  width: 400px;       
+  height: 400px;   
+  overflow: hidden;          
+  display: flex;  
+  border: 2px solid #DC4405;  
+  position: relative;
+  left: 10%;
+
+}
+
+.m_box {
+  display: column;
+  margin: 20px;
+  position: relative;
+  left:20%;
+}
+
+.mission_text {
+  
+  max-width: 600px;
+  font-size: 1.2rem;
+}
+
+
+
+>>>>>>> main
