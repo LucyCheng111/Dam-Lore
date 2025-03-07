@@ -106,3 +106,7 @@ async def post_adder(
 async def get_itinerary(request:Request):
     avail_tours = list(tours.find({}, {"_id":0, "name":1, "description":1}))
     return templates.TemplateResponse("itinerary.html", {"request":request, "tours":avail_tours})
+
+@app.get("/engagement")
+async def get_engagement(request:Request):
+    return templates.TemplateResponse("engagement.html", {"request": request})
