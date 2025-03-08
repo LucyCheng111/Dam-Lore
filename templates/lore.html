@@ -1,0 +1,44 @@
+{%extends "base.html"%}
+
+{%block title%}The Lore{%endblock%}
+
+<!--Hero Section-->
+{%block hero_title%}The Lore{%endblock%}
+{%block hero_p%}Discover the lore of OSU through a collection of entries.{%endblock%}
+
+{%block content%}
+  <!--filter form-->
+  <section class ="filter">
+    <form method="GET">
+      <label for="tag">Filter by tag: </label>
+      <select name="tag" id="tag">
+        <option value="">All</option>
+        {%for tag in available_tags%}
+          <option value="{{tag}}" {%if tag == selected_tag%}selected{%endif%} >{{tag}}</option>
+        {%endfor%}
+      </select>
+      <button type="submit">Apply filter</button>
+    </form>
+  </section>
+
+  <!-- Lore Entries -->
+  <section class="lore">
+    <h2>Entries</h2>
+
+    {%if landmarks%}
+      {%for landmark in landmarks%}
+        <div class="lore-entry">
+          <img src="{{ landmark.image_url}}" alt = "{{landmark.name}}">
+          <div class="entry-info">
+            <h3>{{landmark.name}}</h3>
+            <p><strong>Location: </strong>{{landmark.location_name}}</p>
+            <p>{{landmark.description}}</p>
+          </div>
+        </div>
+        <hr>
+      {%endfor%}
+    {% else %}
+      <p>No historical landmarks found.</p>
+    {%endif%}
+  </section>
+{%endblock%}

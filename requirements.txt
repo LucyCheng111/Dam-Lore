@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pymongo
+jinja2
+python-multipart
+dnspython

@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}Map{% endblock %}
+
+<!--Hero Section-->
+{% block hero_title %}The Map{% endblock %}
+{% block hero_p %}Explore OSU and Corvallis with our custom map api{% endblock %}
+
+{% block content %}
+<div class="container">
+  <!-- Search Ribbon -->
+  <div class="search-ribbon">
+    <h2>Search</h2>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search locations...">
+    </div>
+
+    <!-- Filter by Tag -->
+    <div class="filter">
+      <form method="GET">
+        <label for="tag">Filter by Tag:</label>
+        <select id="tag" name="tag">
+          <option value="">All</option>
+          {% for tag in available_tags %}
+            <option value="{{ tag }}" {% if tag == selected_tag %}selected{% endif %}>{{ tag }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit">Apply Filter</button>
+      </form>
+    </div>
+
+    <div class="top-searched">
+      <h3>Search Results</h3>
+      <ul id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- Map and Info Section -->
+  <div class="map-info-container">
+    <div class="map-container" id="map"></div>
+
+    <!-- Info Section -->
+    <div class="info-section" id="info-section">
+      <h3>Marker Information</h3>
+      <p>Select a location on the map or from the search ribbon to view more details.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Leaflet.js Script -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+<!-- Pass markers to JavaScript as a JSON object -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var markers = {{ markers | tojson }};
+    var selectedTag = "{{ selected_tag }}";
+    var map = L.map('map', {zoom:14, minZoom:12}).setView([44.5646, -123.2620], 14);
+    var infoSection = document.getElementById('info-section');
+    var searchInput = document.getElementById("search-input");
+    var searchResults = document.getElementById("search-results");
+    var markerLayer = L.layerGroup().addTo(map);
+
+    // Restrict map bounds (optional)
+    var bounds = L.latLngBounds(
+      [44.53, -123.30], // Southwest corner
+      [44.62, -123.19]  // Northeast corner 
+    );
+    map.setMaxBounds(bounds);
+    map.on('drag', function() {
+        map.panInsideBounds(bounds, { animate: false });
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    function addMarkers(filteredMarkers) {
+      markerLayer.clearLayers();
+      searchResults.innerHTML = "";
+      
+      filteredMarkers.forEach(function(markerData) {
+        var marker = L.marker([markerData.lat, markerData.lng]).addTo(markerLayer);
+        marker.bindPopup(`<span class="marker-title">${markerData.name}</span>`);
+        
+        marker.on('click', function() {
+          infoSection.innerHTML = `<h3>${markerData.name}</h3><p>${markerData.description}</p>`;
+        });
+        
+        var listItem = document.createElement("li");
+        listItem.textContent = markerData.name;
+        listItem.addEventListener("click", function() {
+          map.setView([markerData.lat, markerData.lng], 16);
+          marker.openPopup();
+
+          infoSection.innerHTML = `<h3>${markerData.name}</h3><p>${markerData.description}</p>`;
+        });
+        searchResults.appendChild(listItem);
+      });
+    }
+
+    searchInput.addEventListener("input", function () {
+      var query = searchInput.value.toLowerCase();
+      var filteredMarkers = markers.filter(m => m.name.toLowerCase().includes(query));
+      addMarkers(filteredMarkers);
+    });
+    
+    addMarkers(markers);
+  });
+</script>
+
+{% endblock %}

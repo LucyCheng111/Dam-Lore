@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dam Lore - {%block title%}{%endblock%}</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <h1>{%block hero_title%}{%endblock%}</h1>
+        <p>{%block hero_p%}{%endblock%}</p>
+        <div class="hero-links">
+          <a href="/">Home</a>
+          <a href="/lore">Lore</a>
+          <a href="/map">Map</a>
+          <a href="/itinerary">Itinerary</a>
+          <a href="/about">About</a>
+          <a href="/mission">Mission</a>
+          <a href="/engagement">Engagement</a>
+        </div>
+      </div>
+    </header>
+
+{%block content%}
+{% endblock %}
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2025 Dam Lore. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/lore">Lore</a>
+          <a href="/map">Map</a>
+          <a href="/itinerary">Itinerary</a>
+          <a href="/about">About</a>
+          <a href="/mission">Our Mission</a>
+        </div>
+      </footer>
+</body>
+</html>
+ 
