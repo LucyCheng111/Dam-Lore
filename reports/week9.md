@@ -7,10 +7,18 @@
 - UI test (3/4)
 - Add info to history page (3/4)
 
-## progress and issues
+## Progress and issues
+This week, we focus on completing the website. There are some info and images that haven't been added and some styling 
+That needs to be fixed. We also push our updates to main and make sure main has the lastest update. We also have the final poster ready 
+and submitted. 
+
+One problem we encountered was that we hadn't added tasks on the trello board yet. We need to manage out trello board. 
 
 
 ## Goals
+- Add tasks to the Trello board (3/9)
+- Prepare final presentation (3/11)
+- Make sure website is complete (3/9)
 
 
 # Contributions of individual team members
@@ -21,6 +29,12 @@
 
 
 ### Lucy Cheng:
+- Add cultural events info on lore page
+- Attend group meeting
+- Add weekly status report
+- Host the website using Heroku
+- Edit living document
+- Edit README.md
 
 
 ### Michael Balzer:
