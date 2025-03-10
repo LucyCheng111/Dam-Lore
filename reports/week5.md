@@ -48,7 +48,8 @@ including layout improvements, interactive elements, and clearer navigation. We 
   
 
 ### Michael Balzer:
-
+- attended group meeting
+- fixed some minor bugs on the website
 
 ### Sjoerd De Bruyn:
   - Connected app to mongo db

@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+
+{%block title%}Engagement{%endblock%}
+
+<!--Hero Section-->
+{%block hero_title%}The Engagement{%endblock%}
+{%block hero_p%}For the student, of the student. Find out how you can help expand DAMLore!{%endblock%}
+
+{%block content%}
+    <h3>How you can help...</h3>
+    <p>
+        If you found yourself dissapointed or distraught that your favorite landmark was not included, do not be alarmed! For the wonderful DAMLore team has included just the fix. 
+        Please enter your suggestion below by typing the name and location of the missing landmark.
+    </p>
+    <form method="POST" action="/submit-suggestion">
+        <label for="landmark_name">Landmark Name:</label>
+        <input type="text" id="landmark_name" name="landmark_name" required>
+        
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+        
+        <button type="submit">Submit Suggestion</button>
+    </form>
+
+    <h3>What happens next?</h3>
+    <p>Our maintenance team will review your suggestion, make sure it is accurate (so don't try and pull any funny business) and add in the landmark as soon as we can. </p>
+{%endblock%}

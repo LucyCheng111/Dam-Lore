@@ -1,6 +1,16 @@
 # Team report
 
 ## Goals from a week ago 
+- Decide what landmarks to appear in our custom map (2/19)
+- Decide what info to appear in our custom map (2/19)
+- Assigning the team to smaller teams (2/21)
+- Assigning small teams to research different parts of Corvallis and OSU (2/21)
+
+## progress and issues
+--Everyone's busy
+
+## Goals
+- Have a meeting and divide works (2/28)
 
 ## progress and issues
 
@@ -11,6 +21,11 @@
 ### Amit Guha:
 
 ### Dan Quan:
+- Customized Map Features
+    - Changed Theme
+    - Created Map Boundaries
+    - Tested Markers
+- Created Documentation for User Guide
 
 ### Lucy Cheng:
 

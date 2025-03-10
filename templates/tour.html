@@ -1,0 +1,66 @@
+{%extends "base.html"%}
+
+{%block title%}Home{%endblock%}
+
+<!--Hero Section-->
+{%block hero_title%}<span class="dam-title">DAM</span> <span class="lore-title">LORE</span>{%endblock%}
+
+{% block content %}
+  <h2>{{ tour.name }}</h2>
+
+  <!-- Tour Step Details -->
+  
+  <h2 id="step-title"></h2>
+  
+  <div class="tour-img">
+    <img id="tour-img" class="tour-img" src="" alt="Step Image">
+  </div>
+
+  <div class="tour-description">
+    <p id="step-description"></p>
+  </div>
+      
+  <div class="tour-directions">
+    <p id="step-directions"><a href="#" target="_blank">Get Directions</a></p>
+  </div>
+
+  <!-- Tour Steps Navigation -->
+  <div class="button-container">
+    <button id="prev" class="nav-btn">Previous</button>
+    <button id="next" class="nav-btn">Next</button>
+  </div>
+
+  <script>
+    const tourData = {{ tour | tojson }};
+    let currentStep = 0;
+
+    function loadStep(index) {
+      const step = tourData.steps[index];
+      document.getElementById("step-title").textContent = step.location;
+      document.getElementById("step-description").textContent = step.description;
+      document.getElementById("map").src = step.directions;
+      document.getElementById("tour-img").src = `/static/images/${step.location.replace(/ /g, '_')}.jpg`;
+      document.getElementById("audio").src = `/static/audio/${step.audio}`;
+      document.getElementById("step-directions").innerHTML = `<a href="${step.directions}" target="_blank">Get Directions</a>`;
+
+      document.getElementById("prev").disabled = index === 0;
+      document.getElementById("next").disabled = index === tourData.steps.length - 1;
+    }
+
+    document.getElementById("prev").addEventListener("click", () => {
+      if (currentStep > 0) {
+        currentStep--;
+        loadStep(currentStep);
+      }
+    });
+
+    document.getElementById("next").addEventListener("click", () => {
+      if (currentStep < tourData.steps.length - 1) {
+        currentStep++;
+        loadStep(currentStep);
+      }
+    });
+
+    loadStep(0);
+  </script>
+{% endblock %}

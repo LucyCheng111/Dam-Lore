@@ -1,373 +1,506 @@
-/* Importing Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Stratum+2&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kievit&display=swap');
+/* ============================
+   Importing Fonts
+   ============================ */
+   @import url('https://fonts.googleapis.com/css2?family=Stratum+2&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Kievit&display=swap');
+   
+   /* ============================
+      General Layout
+      ============================ */
+   body {
+     font-family: 'Kievit', sans-serif;
+     background-color: #f9f9f9;
+     color: #000;
+     margin: 0;
+     padding: 0;
+     font-size: 18px;
+   }
+   
+   a {
+     text-decoration: none;
+     color: #DC4405;
+   }
+   
+   h1, h2, h3 {
+     color: #DC4405;
+   }
+   
+   h2 {
+     text-align: center;
+     margin-top: 50px;
+     font-size: 2.5rem;
+   }
+   
+   /* ============================
+      Hero Section
+      ============================ */
+   .hero {
+     background-color: #f9f9f9;
+     text-align: center;
+     padding: 20px 20px;
+     border-bottom: 2px solid #000;
+   }
+   
+   .hero-content h1 {
+     font-family: 'Stratum 2', sans-serif;
+     font-size: 6rem;
+     margin-bottom: 30px;
+   }
+   
+   .dam-title {
+     color: #DC4405;
+   }
+   
+   .lore-title {
+     color: #000;
+   }
+   
+   .hero-content p {
+     font-family: 'Georgia', serif;
+     font-size: 1.5rem;
+     margin-bottom: 50px;
+   }
+   
+   .hero-links a {
+     margin: 0 25px;
+     font-size: 1.5rem;
+     font-weight: bold;
+   }
+   
+   .hero-links a:hover {
+     text-decoration: underline;
+   }
+   
+      /* ============================
+      DAM Lore Summary Section
+      ============================ */
+      .dam-lore-summary {
+        background-color: #f8f9fa;
+        padding: 60px 20px;
+        text-align: justify;
+        list-style-type: none;
+        width: 75%;
+        margin: 0 auto; /* Centers it horizontally */
+      }
+      
+      
+      .dam-lore-summary h2 {
+        font-size: 3rem;
+        color: #DC4405;
+        margin-bottom: 40px;
+      }
+      
 
-/* General Layout */
-body {
-  font-family: 'Kievit', sans-serif; /* Workhorse font */
-  background-color: #f9f9f9;
-  color: #000;
-  margin: 0;
-  padding: 0;
-  font-size: 18px; /* Default font size increased */
-}
+   /* ============================
+      Recommendations Section
+      ============================ */
+   .recommendations {
+     padding: 60px 20px;
+     background-color: #f9f9f9;
+   }
+   
+   .recommendation-item {
+     display: flex;
+     margin-bottom: 60px;
+   }
+   
+   .recommendation-item:nth-child(odd) {
+     flex-direction: row-reverse;
+   }
+   
+   .recommendation-item img {
+     width: 400px;
+     height: auto;
+     margin: 0 30px;
+   }
+   
+   .recommendation-text {
+     max-width: 600px;
+   }
+   
+   .recommendation-text h3 {
+     font-size: 2rem;
+     margin-top: 0;
+   }
+   
+   .recommendation-text p {
+     font-size: 1.25rem;
+   }
+   
+   .recommendation-text a {
+     display: block;
+     margin-top: 20px;
+     color: #000;
+     font-weight: bold;
+     font-size: 1.2rem;
+   }
+   
+   .recommendation-text a:hover {
+     color: #DC4405;
+   }
+   
+   /* ============================
+      About Section
+      ============================ */
+   .about {
+     padding: 60px 20px;
+     background-color: #f9f9f9;
+   }
+   
+   .about h2 {
+     font-size: 3rem;
+     text-align: center;
+     margin-bottom: 40px;
+   }
+   
+   .team-member {
+     display: flex;
+     margin-bottom: 60px;
+   }
+   
+   .team-member:nth-child(odd) {
+     flex-direction: row-reverse;
+   }
+   
+   .team-member img {
+     width: 250px;
+     height: 250px;
+     border-radius: 50%;
+     margin: 0 30px;
+   }
+   
+   .member-info {
+     max-width: 600px;
+   }
+   
+   .member-info h3 {
+     font-size: 2rem;
+     margin-top: 0;
+   }
+   
+   .member-info p {
+     font-size: 1.25rem;
+     margin: 10px 0;
+   }
+   
+   .member-info p strong {
+     font-weight: bold;
+   }
+   
+   .member-info a {
+     display: block;
+     margin-top: 20px;
+     color: #000;
+     font-weight: bold;
+     font-size: 1.2rem;
+   }
+   
+   .member-info a:hover {
+     color: #DC4405;
+   }
 
-a {
-  text-decoration: none;
-  color: #DC4405; /* OSU Orange */
-}
+   /* ============================
+      Mission Page
+      ============================ */
 
-h1, h2, h3 {
-  color: #DC4405; /* OSU Orange */
-}
+      .mission {
+        display: flex;
+        flex-wrap: wrap; /* Prevents horizontal overflow */
+        justify-content: center; /* Centers content */
+        align-items: center; /* Aligns vertically */
+        max-width: 100%; /* Ensures it does not exceed the page width */
+        padding: 20px;
+      }
+      
+      .mission_photo {
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        border: 2px solid #DC4405;
+        margin: 10px; /* Adds spacing */
+      }
+      
+      .m_box {
+        display: flex;
+        flex-direction: column; /* Stacks text properly */
+        margin: 20px;
+        max-width: 600px; /* Prevents text from stretching too wide */
+      }
+      
+      .mission_text {
+        font-size: 1.2rem;
+        text-align: center; /* Centers text */
+      }
+      
+   
+   /* ============================
+      Lore Section
+      ============================ */
+   .lore {
+     padding: 60px 20px;
+   }
+   
+   .lore h2 {
+     text-align: center;
+     font-size: 3rem;
+     margin-bottom: 40px;
+     color: #DC4405;
+   }
+   
+   .lore-entry {
+     display: flex;
+     margin-bottom: 60px;
+     align-items: flex-start;
+   }
+   
+   .lore-entry img {
+     width: 300px;
+     height: auto;
+     margin-right: 20px;
+     border: 2px solid #000;
+   }
+   
+   .entry-info {
+     max-width: 600px;
+   }
+   
+   .entry-info h3 {
+     font-size: 2rem;
+     margin-top: 0;
+   }
+   
+   .entry-info p {
+     font-size: 1.25rem;
+     margin: 10px 0;
+   }
+   
+   .entry-info p strong {
+     font-weight: bold;
+   }
+   
+   /* ============================
+      Divider
+      ============================ */
+   hr {
+     border: none;
+     border-top: 2px solid #DC4405;
+     margin: 40px 0;
+   }
+   
+   /* ============================
+      Footer
+      ============================ */
+   .footer {
+    position:relative;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     background-color: #000;
+     color: white;
+     text-align: center;
+     padding: 10px 0;
+   }
+   
+   .footer-links a {
+     color: #DC4405;
+     margin: 0 15px;
+     font-size: 1.25rem;
+   }
+   
+   .footer-links a:hover {
+     text-decoration: underline;
+   }
+   
+   /* ============================
+      Search Ribbon
+      ============================ */
+   .search-ribbon {
+     width: 25%;
+     background: #f8f9fa;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   }
+   
+   .search-ribbon h2, .search-ribbon h3 {
+     margin-top: 0;
+     font-size: 1.5rem;
+   }
+   
+   .search-bar input {
+     width: 90%;
+     padding: 10px;
+     margin-bottom: 20px;
+     font-size: 1rem;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+   }
+   
+   .top-searched ul {
+    padding-left: 0;
+    margin-top: 10px;
+  }
+  
+  .top-searched li {
+    margin-bottom: 10px;
+    list-style-type: none;
+    background-color: #DC4405;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  
+  .top-searched li:hover {
+    background-color: #C13705;
+    transform: scale(1.05);
+  }
+   /* ============================
+      Map Section
+      ============================ */
+   .map-container {
+     height: 500px;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   }
+   
+   .map-info-container {
+     width: 75%;
+     display: flex;
+     flex-direction: column;
+   }
+   
+   .container {
+     display: flex;
+     gap: 20px;
+     max-width: 1200px;
+     margin: auto;
+   }
+   
+   .tour-map {
+     margin: auto;
+     width: 60%;
+     height: 60%;
+   }
+   
+   .map {
+     width: 100%;
+     height: 100%;
+     border: none;
+   }
 
-h2 {
-  text-align: center;
-  margin-top: 50px; /* Increased space for bigger layout */
-  font-size: 2.5rem; /* Larger heading */
-}
+   .marker-title {
+      font-weight: bold;
+    }
+   /* ============================
+      Tour Page Setups
+      ============================ */
+   .tour-description {
+     width: 50%;
+     height: auto;
+     padding: 5px;
+     margin: auto;
+     display: flex;
+   }
 
-/* Hero Section */
-.hero {
-  background-color: #f9f9f9;
-  text-align: center;
-  padding: 100px 20px; /* Increased padding */
-  border-bottom: 2px solid #000;
-}
+   .tour-directions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+   }
+   
+   .tour-img {
+     width: 250px;
+     margin-right: 20px;
+     justify-content: center;
+     text-align: center;
+   }
+   
+   /* ============================
+      Tour Buttons
+      ============================ */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 5px;
+      margin-bottom: 20px;
+    }
 
-.hero-content h1 {
-  font-family: 'Stratum 2', sans-serif; /* Display font */
-  font-size: 6rem; /* Bigger title size */
-  margin-bottom: 30px; /* Increased margin */
-}
+   button {
+     background-color: #DC4405;
+     color: white;
+     font-size: 1.2rem;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+   }
+   
+   button:hover {
+     background-color: #C13705;
+   }
+   
+   .prev-btn {
+     margin-right: 10px;
+   }
+   
+   .next-btn {
+     margin-left: 10px;
+   }
+   
 
-.dam-title {
-  color: #DC4405; /* OSU Orange */
-}
+    /* ============================
+    Itinerary
+    ============================ */ 
 
-.lore-title {
-  color: #000; /* Black for Lore */
-}
-
-.hero-content p {
-  font-family: 'Georgia', serif; /* Serif font */
-  font-size: 1.5rem; /* Larger paragraph */
-  margin-bottom: 50px; /* Increased spacing */
-}
-
-.hero-links a {
-  margin: 0 25px; /* More spacing between links */
-  font-size: 1.5rem; /* Larger links */
-  font-weight: bold;
-}
-
-.hero-links a:hover {
-  text-decoration: underline;
-}
-
-/* Recommendations Section */
-.recommendations {
-  padding: 60px 20px; /* Increased padding */
-  background-color: #f9f9f9;
-}
-
-.recommendation-item {
-  display: flex;
-  margin-bottom: 60px; /* Increased margin between items */
-}
-
-.recommendation-item:nth-child(odd) {
-  flex-direction: row-reverse;
-}
-
-.recommendation-item img {
-  width: 400px; /* Larger images */
-  height: auto;
-  margin: 0 30px; /* Increased spacing */
-}
-
-.recommendation-text {
-  max-width: 600px; /* Wider text block */
-}
-
-.recommendation-text h3 {
-  font-size: 2rem; /* Larger title */
-  margin-top: 0;
-}
-
-.recommendation-text p {
-  font-size: 1.25rem; /* Larger paragraph text */
-}
-
-.recommendation-text a {
-  display: block;
-  margin-top: 20px; /* Increased margin */
-  color: #000;
-  font-weight: bold;
-  font-size: 1.2rem; /* Larger links */
-}
-
-.recommendation-text a:hover {
-  color: #DC4405; /* OSU Orange */
-}
-
-/* About Section */
-.about {
-  padding: 60px 20px;
-  background-color: #f9f9f9;
-}
-
-.about h2 {
-  font-size: 3rem; /* Large title for about section */
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.team-member {
-  display: flex;
-  margin-bottom: 60px;
-}
-
-.team-member:nth-child(odd) {
-  flex-direction: row-reverse;
-}
-
-.team-member img {
-  width: 250px; /* Slightly smaller images */
-  height: 250px;
-  border-radius: 50%; /* Circle-shaped image */
-  margin: 0 30px;
-}
-
-.member-info {
-  max-width: 600px; /* Adjusted text block width */
-}
-
-.member-info h3 {
-  font-size: 2rem; /* Larger title for each team member */
-  margin-top: 0;
-}
-
-.member-info p {
-  font-size: 1.25rem; /* Larger paragraphs */
-  margin: 10px 0;
-}
-
-.member-info p strong {
-  font-weight: bold;
-}
-
-.member-info a {
-  display: block;
-  margin-top: 20px;
-  color: #000;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.member-info a:hover {
-  color: #DC4405; /* OSU Orange */
-}
-
-/* History Section */
-.history {
-  padding: 60px 20px;
-}
-
-.history h2 {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 40px;
-  color: #DC4405; /* OSU Orange */
-}
-
-.history-entry {
-  display: flex;
-  margin-bottom: 60px;
-  align-items: flex-start;
-}
-
-.history-entry img {
-  width: 300px;
-  height: auto;
-  margin-right: 20px;
-  border: 2px solid #000;
-}
-
-.entry-info {
-  max-width: 600px;
-}
-
-.entry-info h3 {
-  font-size: 2rem;
-  margin-top: 0;
-}
-
-.entry-info p {
-  font-size: 1.25rem;
-  margin: 10px 0;
-}
-
-.entry-info p strong {
-  font-weight: bold;
-}
-
-/* Divider */
-hr {
-  border: none;
-  border-top: 2px solid #DC4405;
-  margin: 40px 0;
-}
-
-/* Footer */
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-}
-
-
-.footer-links a {
-  color: #DC4405;
-  margin: 0 15px;
-  font-size: 1.25rem;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* Search Ribbon */
-.search-ribbon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20%; /* Fixed width for the left ribbon */
-  height: 100vh; /* Full viewport height */
-  background-color: #f9f9f9;
-  border-right: 2px solid #DC4405; /* OSU Orange border */
-  overflow-y: auto; /* Scroll if content exceeds height */
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-
-.search-ribbon h2, .search-ribbon h3 {
-  margin-top: 0;
-  font-size: 1.5rem;
-}
-
-.search-bar input {
-  width: 90%;
-  padding: 10px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.top-searched ul {
-  padding-left: 20px;
-}
-
-.top-searched li {
-  margin-bottom: 10px;
-  list-style-type: disc;
-}
-
-/* Map Section */
-.map-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80%; /* Remainder of the screen width */
-  height: 75%; /* Most of the screen height */
-}
-
-.tour-map {
-  margin: auto;
-  width: 60%;
-  height: 60%;
-}
-
-.map {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Info Section */
-.info-section {
-  position: fixed;
-  bottom: 30px;
-  left: 0;
-  width: 100%; /* Full width for the bottom ribbon */
-  height: 25%; /* Remaining screen height */
-  background-color: #f9f9f9;
-}
-
-.button-section{
-  position: fixed;
-  bottom: 90px;
-  width: 100%;
-  height: 10%;
-  background-color: #f9f9f9;
-  border-top: 2px solid #DC4405;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tour-map, .tour-description, .audiobar {
-  flex-grow: 1;
-}
-
-/* tour page setups */
-.tour-description {
-  width: 60%;
-  height: auto;
-  padding: 5px;
-  margin: auto;
-  display: flex;
-}
-
-.tour-img {
-  width: 250px;
-  margin-right: 20px
-}
-
-.audiobar {
-  width: 30%;
-  margin: 30px auto 20px;
-}
-
-/* Style for buttons */
-button {
-  background-color: #DC4405; /* OSU Orange */
-  color: white; /* White text */
-  font-size: 1.2rem; /* Larger font */
-  padding: 10px 20px; /* Space around text */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth color transition */
-}
-
-button:hover {
-  background-color: #C13705; /* Darker orange on hover */
-}
-
-/* Specific styles for prev and next buttons */
-.prev-btn {
-  margin-right: 10px; /* Space between buttons */
-}
-
-.next-btn {
-  margin-left: 10px; /* Space between buttons */
-}
+    .tour-container {
+      background: #ffffff;
+      border: 2px solid #DC4405;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .tour-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .tour-container h2 {
+      font-size: 1.8rem;
+      color: #DC4405;
+      margin-bottom: 10px;
+    }
+    
+    .tour-container p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    
+    .tour-container a {
+      display: inline-block;
+      padding: 10px 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      background: #DC4405;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    
+    .tour-container a:hover {
+      background: #C13705;
+    }
