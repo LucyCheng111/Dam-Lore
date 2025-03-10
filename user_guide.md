@@ -1,6 +1,7 @@
 # User Guide
 ## Description
 The web application gives users an interactive version of the OSU/Corvallis Map. It features key landmarks, such as campus buildings, cultural centers, restaurants, and notable natural locations. 
+Learn more: [go to README.md](README.md)
 ## Installation
 * Requires Python, FastApi Libaries, and PyMongo
 * A MongoDB Database
