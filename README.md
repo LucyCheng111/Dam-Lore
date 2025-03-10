@@ -18,19 +18,27 @@
 (https://trello.com/b/wLxDhrms/dam-lore )
 
 ## Abstract
-Our project is a website that provides users a comprehensive history of the OSU campus and the surrounding Corvallis area through a landmark map, 
-location history page, “must-trys” and recommendations page, home page, and a creators team page. The website will serve as a cultural and historical 
-collection for all matters such as building history, notable natural locations, cultural landmarks, unnoticed odds and ends, etc. 
+Our website is your ultimate guide to exploring OSU and Corvallis like never before! Whether you're hunting for the best restaurants near campus, uncovering fascinating historical events, or finding hidden gems around town, we’ve got it all.
+
+What’s Inside?
+📍 Map Page – See all the must-visit spots at a glance!
+📖 Lore Page – Discover the places that make OSU and Corvallis unique!
+🏠 Home Page – Discover our team's top picks and what makes this site awesome.
+👥 About Page – Meet the minds behind the project.
+🗺 Itinerary Page – Take curated tours around OSU.
+💬 Engagement Page – Help Shape the Future of This Project!
+🚀 Mission Page – Learn what sets us apart from other apps and why we're redefining exploration at OSU!
+
+Whether you're a student, visitor, or proud Beaver parent, our website makes it easy (and fun!) to experience the best of OSU and Corvallis. 
+From breathtaking nature spots to quirky cultural landmarks, we help you uncover all the hidden treasures you never knew existed.
+Learn more on our [website homepage](https://damlore-ea00bfbe67d3.herokuapp.com/)
 
 ## Goal
-Our application will allow users to discover much more about the place they live/visit and give a better representation of Corvallis and OSU. 
-It will solve the problem for students, visitors, and parents alike to find things to do close by and contain multilingual capabilities for 
-the vast international community. 
+Our app lets users uncover hidden gems and fascinating history around Corvallis and OSU, making every visit an adventure! 
+Whether you're a student looking for cool hangout spots, a visitor exploring the campus, or a parent searching for things to do nearby, 
+we’ve got you covered. Dive into OSU’s rich past, discover must-see landmarks, and find exciting activities—all in one place!
 
-## User Case Available
-- User can open home page and see introduction of all the pages of the website.
-- User can navigate to mission page and have info of our mission
-- User can navigate to about page and see the info of team members 
+
 
 
 
