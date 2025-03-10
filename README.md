@@ -22,4 +22,4 @@ the vast international community.
 ## User Case Available
 - User can open home page and see introduction of all the pages of the website.
 - User can navigate to mission page and have info of our mission
-- User can navigate to about page and see the info of team members 
+- User can navigate to about page and see the info of team members

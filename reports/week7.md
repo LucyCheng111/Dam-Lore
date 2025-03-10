@@ -13,8 +13,10 @@
 - Have a meeting and divide works (2/28)
 
 ## progress and issues
+--Everyone's busy
 
 ## Goals
+- Have a meeting and divide works (2/28)
 
 # Contributions of individual team members
 
