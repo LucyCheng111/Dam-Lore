@@ -20,17 +20,17 @@
 ## Abstract
 Our website is your ultimate guide to exploring OSU and Corvallis like never before! Whether you're hunting for the best restaurants near campus, uncovering fascinating historical events, or finding hidden gems around town, we’ve got it all.
 
-What’s Inside?
-📍 Map Page – See all the must-visit spots at a glance!
-📖 Lore Page – Discover the places that make OSU and Corvallis unique!
-🏠 Home Page – Discover our team's top picks and what makes this site awesome.
-👥 About Page – Meet the minds behind the project.
-🗺 Itinerary Page – Take curated tours around OSU.
-💬 Engagement Page – Help Shape the Future of This Project!
-🚀 Mission Page – Learn what sets us apart from other apps and why we're redefining exploration at OSU!
+**What’s Inside?**
+**📍 Map Page** – See all the must-visit spots at a glance!  
+**📖 Lore Page** – Discover the places that make OSU and Corvallis unique!  
+**🏠 Home Page** – Discover our team's top picks and what makes this site awesome.  
+**👥 About Page** – Meet the minds behind the project.  
+**🗺 Itinerary Page** – Take curated tours around OSU.  
+**💬 Engagement Page** – Help Shape the Future of This Project!  
+**🚀 Mission Page** – Learn what sets us apart from other apps and why we're redefining exploration at OSU!
 
 Whether you're a student, visitor, or proud Beaver parent, our website makes it easy (and fun!) to experience the best of OSU and Corvallis. 
-From breathtaking nature spots to quirky cultural landmarks, we help you uncover all the hidden treasures you never knew existed.
+From breathtaking nature spots to quirky cultural landmarks, we help you uncover all the hidden treasures you never knew existed.  
 Learn more on our [website homepage](https://damlore-ea00bfbe67d3.herokuapp.com/)
 
 ## Goal
