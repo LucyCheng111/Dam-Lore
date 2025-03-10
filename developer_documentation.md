@@ -19,7 +19,7 @@ All index files that build up the pages are in the templates/ directory.
 
 ## Build the software
 This is a web-based application; no complex build system is required. To run the project:
-Please see INSTRUCTIONS.md
+Please see [INSTRUCTIONS.md](INSTRUCTIONS.md)
 
 
 ## Test the software
