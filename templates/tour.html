@@ -1,66 +1,221 @@
 {%extends "base.html"%}
 
-{%block title%}Home{%endblock%}
+{%block title%}{{ tour.name }} Tour{%endblock%}
 
 <!--Hero Section-->
-{%block hero_title%}<span class="dam-title">DAM</span> <span class="lore-title">LORE</span>{%endblock%}
+{%block hero_title%}{{ tour.name }}{%endblock%}
+{%block hero_p%}Explore Corvallis with our guided tour experience{%endblock%}
 
 {% block content %}
-  <h2>{{ tour.name }}</h2>
-
-  <!-- Tour Step Details -->
-  
-  <h2 id="step-title"></h2>
-  
-  <div class="tour-img">
-    <img id="tour-img" class="tour-img" src="" alt="Step Image">
-  </div>
-
-  <div class="tour-description">
-    <p id="step-description"></p>
-  </div>
+  <div class="tour-container">
+    <!-- Tour Progress Bar -->
+    <div class="tour-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-text">
+        <span id="current-step">Step 1</span> of <span id="total-steps">5</span>
+      </div>
+    </div>
+    
+    <!-- Tour Content -->
+    <div class="tour-content">
+      <div class="tour-header">
+        <h2 id="step-title" class="location-title"></h2>
+        <div class="tour-controls">
+          <button id="play-audio" class="audio-control">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Play Audio</span>
+          </button>
+          <audio id="audio" src=""></audio>
+        </div>
+      </div>
       
-  <div class="tour-directions">
-    <p id="step-directions"><a href="#" target="_blank">Get Directions</a></p>
-  </div>
-
-  <!-- Tour Steps Navigation -->
-  <div class="button-container">
-    <button id="prev" class="nav-btn">Previous</button>
-    <button id="next" class="nav-btn">Next</button>
+      <div class="tour-body">
+        <div class="tour-image-container">
+          <img id="tour-img" class="tour-img" src="" alt="Step Image">
+        </div>
+        
+        <div class="tour-info">
+          <div class="tour-description-container">
+            <h3>About this Location</h3>
+            <div id="step-description" class="tour-description"></div>
+          </div>
+          
+          <div class="tour-directions-container">
+            <h3>How to Get There</h3>
+            <p class="directions-text">Follow these directions to reach this location:</p>
+            <a id="step-directions" href="#" target="_blank" class="directions-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tour Navigation -->
+    <div class="tour-navigation">
+      <button id="prev" class="nav-btn prev-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Previous
+      </button>
+      
+      <div class="tour-steps-indicator" id="steps-indicator">
+        <!-- Step indicators will be added dynamically -->
+      </div>
+      
+      <button id="next" class="nav-btn next-btn">
+        Next
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Return to Tours Link -->
+    <div class="return-link">
+      <a href="/itinerary" class="back-to-tours">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"></path>
+        </svg>
+        Back to All Tours
+      </a>
+    </div>
   </div>
 
   <script>
     const tourData = {{ tour | tojson }};
     let currentStep = 0;
-
+    let audioPlaying = false;
+    const audioElement = document.getElementById("audio");
+    const playButton = document.getElementById("play-audio");
+    
+    // Initialize the tour
+    function initTour() {
+      // Set total steps
+      document.getElementById("total-steps").textContent = tourData.steps.length;
+      
+      // Create step indicators
+      const stepsIndicator = document.getElementById("steps-indicator");
+      for (let i = 0; i < tourData.steps.length; i++) {
+        const indicator = document.createElement("div");
+        indicator.className = "step-indicator" + (i === 0 ? " active" : "");
+        indicator.dataset.step = i;
+        indicator.addEventListener("click", () => {
+          currentStep = i;
+          loadStep(i);
+        });
+        stepsIndicator.appendChild(indicator);
+      }
+      
+      // Load the first step
+      loadStep(0);
+      
+      // Set up audio controls
+      playButton.addEventListener("click", toggleAudio);
+      audioElement.addEventListener("ended", () => {
+        audioPlaying = false;
+        playButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Play Audio</span>
+        `;
+      });
+    }
+    
     function loadStep(index) {
       const step = tourData.steps[index];
+      
+      // Update step content
       document.getElementById("step-title").textContent = step.location;
       document.getElementById("step-description").textContent = step.description;
-      document.getElementById("map").src = step.directions;
-      document.getElementById("tour-img").src = `/static/images/${step.location.replace(/ /g, '_')}.jpg`;
+      // Use a fallback image if the specific one isn't available
+      const imageName = step.location.replace(/ /g, '_').toLowerCase();
+      if (imageName.includes("reser") || imageName.includes("stadium")) {
+        document.getElementById("tour-img").src = "/static/reser.jpg";
+      } else if (imageName.includes("memorial") || imageName.includes("mu")) {
+        document.getElementById("tour-img").src = "/static/mu.jpg";
+      } else if (imageName.includes("weatherford")) {
+        document.getElementById("tour-img").src = "/static/weatherford.jpg";
+      } else {
+        // Default fallback image
+        document.getElementById("tour-img").src = "/static/benton.jpeg";
+      }
       document.getElementById("audio").src = `/static/audio/${step.audio}`;
-      document.getElementById("step-directions").innerHTML = `<a href="${step.directions}" target="_blank">Get Directions</a>`;
-
+      document.getElementById("step-directions").href = step.directions;
+      
+      // Update progress
+      document.getElementById("current-step").textContent = `Step ${index + 1}`;
+      document.getElementById("progress-fill").style.width = `${((index + 1) / tourData.steps.length) * 100}%`;
+      
+      // Update step indicators
+      const indicators = document.querySelectorAll(".step-indicator");
+      indicators.forEach((indicator, i) => {
+        indicator.className = "step-indicator" + (i === index ? " active" : "");
+      });
+      
+      // Reset audio state
+      audioPlaying = false;
+      playButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <span>Play Audio</span>
+      `;
+      
+      // Update navigation buttons
       document.getElementById("prev").disabled = index === 0;
       document.getElementById("next").disabled = index === tourData.steps.length - 1;
     }
-
+    
+    function toggleAudio() {
+      if (audioPlaying) {
+        audioElement.pause();
+        playButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Play Audio</span>
+        `;
+      } else {
+        audioElement.play();
+        playButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+          <span>Pause Audio</span>
+        `;
+      }
+      audioPlaying = !audioPlaying;
+    }
+    
+    // Navigation event listeners
     document.getElementById("prev").addEventListener("click", () => {
       if (currentStep > 0) {
         currentStep--;
         loadStep(currentStep);
       }
     });
-
+    
     document.getElementById("next").addEventListener("click", () => {
       if (currentStep < tourData.steps.length - 1) {
         currentStep++;
         loadStep(currentStep);
       }
     });
-
-    loadStep(0);
+    
+    // Initialize the tour when the page loads
+    initTour();
   </script>
 {% endblock %}
