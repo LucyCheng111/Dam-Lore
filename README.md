@@ -1,5 +1,9 @@
 # Dam-Lore
 **Project proposal: (https://docs.google.com/document/d/1trV5bVjFNRz2OAK8bVXCxveVXWNtNZy2brRy2OIu-tQ/edit?tab=t.0#heading=h.zahx46skvav0)**
+
+### Website link:
+(https://damlore-ea00bfbe67d3.herokuapp.com/)
+
 ### Layout
 - README.md that has an overview of the project
 - User_guide.md provides user instructions to use the website
@@ -11,8 +15,6 @@
     - INSTRUCTIONS.MD is instruction for localhosting the website (developers)
 - Heroku hosting files: requirements.txt, Procfile
 
-### Website link:
-(https://damlore-ea00bfbe67d3.herokuapp.com/)
 
 ### Trello board link:
 (https://trello.com/b/wLxDhrms/dam-lore )
@@ -20,7 +22,7 @@
 ## Abstract
 Our website is your ultimate guide to exploring OSU and Corvallis like never before! Whether you're hunting for the best restaurants near campus, uncovering fascinating historical events, or finding hidden gems around town, we’ve got it all.
 
-**What’s Inside?**
+**What’s Inside?**  
 **📍 Map Page** – See all the must-visit spots at a glance!  
 **📖 Lore Page** – Discover the places that make OSU and Corvallis unique!  
 **🏠 Home Page** – Discover our team's top picks and what makes this site awesome.  
