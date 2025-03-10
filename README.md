@@ -1,7 +1,15 @@
 # Dam-Lore
 **Project proposal: (https://docs.google.com/document/d/1trV5bVjFNRz2OAK8bVXCxveVXWNtNZy2brRy2OIu-tQ/edit?tab=t.0#heading=h.zahx46skvav0)**
 ### Layout
-The layout of the repository is a README.md that has an overview of the project, and HTML files that set up our website. The reports folder has the weekly status reports. 
+- README.md that has an overview of the project
+- User_guide.md provides user instructions to use the website
+- Static/ saves images of the website and stylesheet
+- templates/ that stores HTML files for the pages
+- reports/ has the weekly status reports.
+- app.py for backend
+- developer_documentation.md has instructions to set up the website and release a new version of the website
+    - INSTRUCTIONS.MD is instruction for localhosting the website (developers)
+- Heroku hosting files: requirements.txt, Procfile
 
 ### Website link:
 (https://damlore-ea00bfbe67d3.herokuapp.com/)
