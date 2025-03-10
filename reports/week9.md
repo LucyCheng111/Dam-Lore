@@ -38,7 +38,9 @@ One problem we encountered was that we hadn't added tasks on the trello board ye
 
 
 ### Michael Balzer:
-
+- attend group meetings
+- updated and filled out the about us page
+- update reports
 
 ### Sjoerd De Bruyn:
 
