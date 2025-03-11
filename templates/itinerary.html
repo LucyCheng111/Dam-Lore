@@ -1,18 +1,113 @@
 {%extends "base.html"%}
 
-{%block title%}Itinerary{%endblock%}
+{%block title%}Tours & Itineraries{%endblock%}
 
-{%block hero_title%}The Itinerary{%endblock%}
-{%block hero_p%}It can be hard to plan a day in Corvalls. This page provides a set of guides hand-picked by OSU students to fill the day for certain events and occasions.{%endblock%}
+{%block hero_title%}Tours & Itineraries{%endblock%}
+{%block hero_p%}Discover Corvallis through curated tours designed by OSU students. Perfect for visitors, new students, or anyone looking to explore the area's hidden gems.{%endblock%}
 
 {%block content%}
-    <h2>Available Tours</h2>
-    {%for tour in tours%}
-        <div class="tour-container">
-            <h2>{{tour.name}}</h2>
-            <p>{{tour.description}}</p>
-            <a href="/tour/{{ tour.name }}">Take the tour</a>
+  <!-- Introduction Section -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h2>Explore Corvallis</h2>
+          <p>Whether you're a first-time visitor, a new student, or a long-time resident looking to rediscover the area, our curated tours offer a perfect way to experience Corvallis. Each tour features carefully selected landmarks with historical significance and interesting stories.</p>
         </div>
-    {%endfor%}
-{%endblock%}
+        <div class="intro-image">
+          <img src="/static/benton.jpeg" alt="Corvallis Landmark" class="rounded-image">
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Tours Section -->
+  <section class="tours-section">
+    <div class="container">
+      <h2>Available Tours</h2>
+      
+      <div class="tours-grid">
+        {%for tour in tours%}
+          <div class="tour-card">
+            <div class="tour-card-header">
+              <h3>{{tour.name}}</h3>
+              <span class="tour-steps">
+                <!-- This would ideally be dynamic based on the number of steps -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"></path>
+                  <path d="M18.4 9.6L8.3 15l3.7-9.4 1.7 5.7z"></path>
+                </svg>
+                Multiple Stops
+              </span>
+            </div>
+            
+            <div class="tour-card-content">
+              <p>{{tour.description}}</p>
+            </div>
+            
+            <div class="tour-card-footer">
+              <a href="/tour/{{ tour.name }}" class="feature-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 16 16 12 12 8"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                Start Tour
+              </a>
+            </div>
+          </div>
+        {%endfor%}
+      </div>
+      
+      <!-- No Tours Message (shown if no tours are available) -->
+      {% if not tours %}
+        <div class="no-results">
+          <p>No tours are currently available. Please check back later or suggest a new tour on our engagement page.</p>
+          <a href="/engagement" class="feature-button">Suggest a Tour</a>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Tour Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <h2>Why Take a Guided Tour?</h2>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
+          </div>
+          <h3>Discover Hidden Gems</h3>
+          <p>Explore locations and stories that aren't found in typical tourist guides.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <h3>Audio Narration</h3>
+          <p>Listen to interesting facts and stories about each location as you explore.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+          </div>
+          <h3>Easy Navigation</h3>
+          <p>Get directions to each location and follow a carefully planned route.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{%endblock%}

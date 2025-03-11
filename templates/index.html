@@ -7,80 +7,99 @@
 {%block hero_p%}Explore the rich history and culture of Oregon State University and the Corvallis region.{%endblock%}
 
 {%block content%}
-  <!-- Top Recommendations Section -->
-  <div class="dam-lore-summary">
-    <h2>What is DAM Lore?</h2>
-    <p>DAM Lore provides users a few features that makes it simple and fun to explore the OSU and Corvallis Areas.
-      The features included in DAM Lore are:
-    </p>
-      <br>
-      <h3>The Lore Page</h3>
-      <p>Our collection of entries we thought every student and parent should see when they're in town.</p>
-      <br>
-      <h3>The Map Page</h3>
-      <p>An easy way to find all locations you may want to visit from our entries. It includes a serach bar, a custom map api,
-        and an additional information section.
-      </p>
-      <br>
-      <h3>The Itinerary Page</h3>
-      <p>Looking at all entries can be overwhelming. Luckily, we have provided you with just the solution. Our itinerary page
-        allows the user to choose from a selection of tours like the campus or culture tour to guide their Corvallis experience.
-      </p>
-      <br>
-      <h3>The About and Mission Pages</h3>
-      <p>These pages are dedicated to giving the user more information about our lovely team and a deeper explanation
-        of our mission.
-      </p>
-      <br>
-      <h3>The Engagement Page</h3>
-      <p>This project is from the students for the students, and with that we want to make sure it can evolve as the study body does. The engagement page focuses on collaboration with each student
-        and user that visits this page and allows you, the user, to leave comments on potential areas of interest we may have missed.
-      </p>
-      <br>
-
-      <h3>The Team Recommendations</h3>
-      <p>Found just below is our team recommendations. The top 3 location that our team liked the most.
-      </p>
-      <br>
-    <p>We as the DAM Lore Team hope you enjoy this walk through our wondeful campus and town and learn more about the place we call home!</p>
+  <!-- Introduction with Image -->
+  <div class="intro-section">
+    <div class="intro-content">
+      <h2>What is DAM Lore?</h2>
+      <p>DAM Lore provides users a few features that makes it simple and fun to explore the OSU and Corvallis Areas.</p>
+      <p>We as the DAM Lore Team hope you enjoy this walk through our wonderful campus and town and learn more about the place we call home!</p>
+    </div>
+    <div class="intro-image">
+      <img src="/static/webmap2.png" alt="DAM Lore Map" class="rounded-image">
+    </div>
   </div>
 
+  <!-- Features Grid -->
+  <div class="features-grid">
+    <div class="feature-card">
+      <img src="/static/mu.jpg" alt="Memorial Union" class="feature-image">
+      <h3>The Lore Page</h3>
+      <p>Our collection of entries we thought every student and parent should see when they're in town.</p>
+      <div class="button-container">
+        <a href="/lore" class="feature-button">Explore Lore</a>
+      </div>
+    </div>
+    
+    <div class="feature-card">
+      <img src="/static/webmap2.png" alt="Map View" class="feature-image">
+      <h3>The Map Page</h3>
+      <p>An easy way to find all locations you may want to visit from our entries. It includes a search bar, a custom map api,
+        and detailed information panels for each landmark including historical facts, photos, and visitor tips.</p>
+      <div class="button-container">
+        <a href="/map" class="feature-button">View Map</a>
+      </div>
+    </div>
+    
+    <div class="feature-card">
+      <img src="/static/weatherford.jpg" alt="Weatherford Hall" class="feature-image">
+      <h3>The Itinerary Page</h3>
+      <p>Looking at all entries can be overwhelming. Luckily, we have provided you with just the solution. Our itinerary page
+        allows the user to choose from a selection of tours like the campus or culture tour to guide their Corvallis experience.</p>
+      <div class="button-container">
+        <a href="/itinerary" class="feature-button">Plan Your Tour</a>
+      </div>
+    </div>
+    
+    <div class="feature-card">
+      <img src="/static/about/benny.png" alt="About Us" class="feature-image">
+      <h3>The About and Mission Pages</h3>
+      <p>These pages are dedicated to giving the user more information about our lovely team and a deeper explanation
+        of our mission.</p>
+      <div class="button-group">
+        <a href="/about" class="feature-button">Our Team</a>
+        <a href="/mission" class="feature-button">Our Mission</a>
+      </div>
+    </div>
+    
+    <div class="feature-card">
+      <img src="/static/benton.jpeg" alt="Benton Hall" class="feature-image">
+      <h3>The Engagement Page</h3>
+      <p>This project is from the students for the students, and with that we want to make sure it can evolve as the student body does. The engagement page focuses on collaboration with each student
+        and user that visits this page and allows you, the user, to leave comments on potential areas of interest we may have missed.</p>
+      <div class="button-container">
+        <a href="/engagement" class="feature-button">Get Involved</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Recommendations Section -->
   <section class="recommendations">
     <h2>Team Recommendations</h2>
+    <p>Our top recommendations of the month. These are chosen by users by liking locations and provide
+      the best representation of what users have been enjoying. Check back regularly as we update these based on community feedback!</p>
     
     <div class="recommendation-item">
-      <img src="./static/recommand/melon.jpg" alt="melon-shack">
+      <img src="/static/mu.jpg" alt="Memorial Union">
       <div class="recommendation-text">
-        <h3>Melon shack</h3>
-        <p>The Melon Shack is a family farm that produces the most 
-          delicious melons in the Northwest. We also operate a fall pumpkin patch,
-          which includes a variety of fun family activities for all to enjoy.</p>
-          <a href="https://themelonshack.com/" target="_blank" style="color: rgb(240, 96, 0);">visit website</a>
+        <h3>Memorial Union</h3>
+        <p>The heart of OSU's campus with rich history and beautiful architecture.</p>
       </div>
     </div>
 
     <div class="recommendation-item">
-      <img src="./static/recommand/willamete-tides.jpg" alt="willamete-tides">
+      <img src="/static/reser.jpg" alt="Reser Stadium">
       <div class="recommendation-text">
-        <h3>Willamette tides</h3>
-        <p>We're bringing high quality fun to the Willamette river. 
-          Float rafts, tubes, and kayaks on a beautiful section of river 
-          near downtown Corvallis </p>
-          <a href="https://www.willamettetides.com/" target="_blank" style="color: rgb(240, 96, 0);">visit website</a>
+        <h3>Reser Stadium</h3>
+        <p>Home of the OSU Beavers football team and a landmark on campus.</p>
       </div>
     </div>
 
     <div class="recommendation-item">
-      <img src="./static/recommand/escape-corvallis.jpg" alt="escape-corvallis">
+      <img src="/static/weatherford.jpg" alt="Weatherford Hall">
       <div class="recommendation-text">
-        <h3>Escape Corvallis</h3>
-        <p>From 'old school' logic puzzles, to physical puzzles that might 
-          require the group to work together to high-tech puzzles that bring the 
-          'wow' factor, Escape Corvallis aims to give everyone in the group a 
-          chance to shine.</p>
-        <a href="https://escapecorvallis.com/" target="_blank" style="color: rgb(240, 96, 0);">visit website</a>
+        <h3>Weatherford Hall</h3>
+        <p>A historic residence hall with distinctive architecture and campus presence.</p>
       </div>
     </div>
   </section>
-
 {%endblock%}

@@ -3,25 +3,109 @@
 {%block title%}Engagement{%endblock%}
 
 <!--Hero Section-->
-{%block hero_title%}The Engagement{%endblock%}
-{%block hero_p%}For the student, of the student. Find out how you can help expand DAMLore!{%endblock%}
+{%block hero_title%}Community Engagement{%endblock%}
+{%block hero_p%}Help us expand Dam-Lore with your suggestions and become part of our growing community!{%endblock%}
 
 {%block content%}
-    <h3>How you can help...</h3>
-    <p>
-        If you found yourself dissapointed or distraught that your favorite landmark was not included, do not be alarmed! For the wonderful DAMLore team has included just the fix. 
-        Please enter your suggestion below by typing the name and location of the missing landmark.
-    </p>
-    <form method="POST" action="/submit-suggestion">
-        <label for="landmark_name">Landmark Name:</label>
-        <input type="text" id="landmark_name" name="landmark_name" required>
-        
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" required>
-        
-        <button type="submit">Submit Suggestion</button>
-    </form>
+  <!-- Introduction Section -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h2>Join Our Community</h2>
+          <p>Dam-Lore is a community-driven project that aims to document and preserve the rich history of OSU campus and the Corvallis area. We believe that the best historical collections are built through collaboration and shared knowledge from people who love their community.</p>
+        </div>
+        <div class="intro-image">
+          <img src="/static/benton.jpeg" alt="Benton Hall" class="rounded-image">
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h3>What happens next?</h3>
-    <p>Our maintenance team will review your suggestion, make sure it is accurate (so don't try and pull any funny business) and add in the landmark as soon as we can. </p>
+  <!-- Suggestion Form Section -->
+  <section class="engagement-section">
+    <div class="container">
+      <div class="engagement-card">
+        <div class="engagement-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div>
+        <div class="engagement-content">
+          <h3>Suggest a Landmark</h3>
+          <p>Did we miss your favorite landmark? Help us expand our collection by suggesting new locations to add to Dam-Lore. Your contributions help make this resource more valuable for everyone!</p>
+          
+          <form method="POST" action="/submit-suggestion" class="suggestion-form">
+            <div class="form-group">
+              <label for="landmark_name">Landmark Name:</label>
+              <input type="text" id="landmark_name" name="landmark_name" class="form-control" placeholder="e.g. Memorial Union" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="location">Location:</label>
+              <input type="text" id="location" name="location" class="form-control" placeholder="e.g. 2501 SW Jefferson Way" required>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description (Optional):</label>
+              <textarea id="description" name="description" class="form-control" placeholder="Tell us what makes this landmark special..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="tag">Category:</label>
+              <select name="tag" id="tag" class="form-control">
+                <option value="">Select a category</option>
+                <option value="Building">Building</option>
+                <option value="Monument">Monument</option>
+                <option value="Nature">Nature</option>
+                <option value="Events">Events</option>
+                <option value="Restaurants">Restaurants</option>
+                <option value="Activity">Activity</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="feature-button">Submit Suggestion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <h2>What Happens Next?</h2>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Review</h3>
+            <p>Our team reviews your suggestion to ensure it meets our guidelines and contains accurate information.</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Research</h3>
+            <p>We conduct additional research about the landmark to gather historical details and interesting facts.</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Addition</h3>
+            <p>The landmark is added to our database and becomes available on both the map and lore pages.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="process-note">
+        <p>Thank you for helping us expand Dam-Lore! Your contributions make this project better for everyone in the OSU and Corvallis community.</p>
+      </div>
+    </div>
+  </section>
 {%endblock%}

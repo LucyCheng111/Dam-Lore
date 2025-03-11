@@ -4,41 +4,112 @@
 
 <!--Hero Section-->
 {%block hero_title%}The Lore{%endblock%}
-{%block hero_p%}Discover the lore of OSU through a collection of entries.{%endblock%}
+{%block hero_p%}Discover the rich history and fascinating stories of OSU and Corvallis{%endblock%}
 
 {%block content%}
+  <!--Introduction Section-->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h2>Explore Our Historical Collection</h2>
+          <p>Our collection of historical landmarks and stories provides a glimpse into the rich heritage of Oregon State University and the surrounding Corvallis area. Each entry has been carefully researched and documented to preserve the history for future generations.</p>
+        </div>
+        <div class="intro-image">
+          <img src="/static/mu.jpg" alt="Memorial Union" class="rounded-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!--filter form-->
-  <section class ="filter">
-    <form method="GET">
-      <label for="tag">Filter by tag: </label>
-      <select name="tag" id="tag">
-        <option value="">All</option>
-        {%for tag in available_tags%}
-          <option value="{{tag}}" {%if tag == selected_tag%}selected{%endif%} >{{tag}}</option>
-        {%endfor%}
-      </select>
-      <button type="submit">Apply filter</button>
-    </form>
+  <section class="filter-section">
+    <div class="container">
+      <div class="filter-header">
+        <h2>Explore by Category</h2>
+        <p>Discover historical landmarks based on your interests</p>
+      </div>
+      <div class="filter-card">
+        <div class="filter-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+        </div>
+        <div class="filter-content">
+          <h3>Filter Your Results</h3>
+          <p>Select a category below to narrow down the historical landmarks you'd like to explore.</p>
+          <form method="GET" class="filter-form">
+            <div class="form-group">
+              <label for="tag">Category:</label>
+              <div class="select-wrapper">
+                <select name="tag" id="tag" class="form-control">
+                  <option value="">All Categories</option>
+                  {%for tag in available_tags%}
+                    <option value="{{tag}}" {%if tag == selected_tag%}selected{%endif%}>{{tag}}</option>
+                  {%endfor%}
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="feature-button">Apply Filter</button>
+          </form>
+        </div>
+      </div>
+      {% if selected_tag %}
+      <div class="active-filter">
+        <div class="active-filter-content">
+          <div class="filter-status-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="filter-status-text">
+            <p>Currently viewing landmarks in category:</p>
+            <span class="filter-badge">{{ selected_tag }}</span>
+            <span class="results-count">{{ landmarks|length }} result{% if landmarks|length != 1 %}s{% endif %} found</span>
+          </div>
+        </div>
+        <a href="/lore" class="clear-filter">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Clear filter
+        </a>
+      </div>
+      {% endif %}
+    </div>
   </section>
 
   <!-- Lore Entries -->
-  <section class="lore">
-    <h2>Entries</h2>
-
-    {%if landmarks%}
-      {%for landmark in landmarks%}
-        <div class="lore-entry">
-          <img src="{{ landmark.image_url}}" alt = "{{landmark.name}}">
-          <div class="entry-info">
-            <h3>{{landmark.name}}</h3>
-            <p><strong>Location: </strong>{{landmark.location_name}}</p>
-            <p>{{landmark.description}}</p>
-          </div>
+  <section class="lore-section">
+    <div class="container">
+      <h2>Historical Landmarks</h2>
+      
+      {%if landmarks%}
+        <div class="lore-grid">
+          {%for landmark in landmarks%}
+            <div class="lore-card">
+              <div class="lore-image">
+                <img src="{{ landmark.image_url}}" alt="{{landmark.name}}">
+              </div>
+              <div class="lore-content">
+                <h3>{{landmark.name}}</h3>
+                <p class="location"><strong>Location: </strong>{{landmark.location_name}}</p>
+                <p class="description">{{landmark.description}}</p>
+                <div class="lore-tag">
+                  <span>{{landmark.tag}}</span>
+                </div>
+              </div>
+            </div>
+          {%endfor%}
         </div>
-        <hr>
-      {%endfor%}
-    {% else %}
-      <p>No historical landmarks found.</p>
-    {%endif%}
+      {% else %}
+        <div class="no-results">
+          <p>No historical landmarks found for the selected filter.</p>
+          <a href="/lore" class="feature-button">View All Landmarks</a>
+        </div>
+      {%endif%}
+    </div>
   </section>
 {%endblock%}
