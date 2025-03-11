@@ -21,7 +21,7 @@
  Our website is your ultimate guide to exploring OSU and Corvallis like never before! Whether you're hunting for the best restaurants near campus, uncovering fascinating historical events, or finding hidden gems around town, we’ve got it all.
  
 
- **What’s Inside?**
+ **What’s Inside?**  
  **📍 Map Page** – See all the must-visit spots at a glance!  
  **📖 Lore Page** – Discover the places that make OSU and Corvallis unique!  
  **🏠 Home Page** – Discover our team's top picks and what makes this site awesome.  
