@@ -6,5 +6,5 @@ Libraries needed:
  - uvicorn
  - pymongo
  - jinja2
- - python-multipart
+ - python-multipart  
 To run the webpage type "python -m uvicorn app:app --reload" and it will be available on 127.0.0.1:8000
