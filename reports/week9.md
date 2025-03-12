@@ -26,7 +26,10 @@
  ### Amit Guha:
  
  ### Dan Quan:
- 
+ - Attended Group Meeting
+ - Polished and Optmized CSS Sheet
+ - Fixed centering issues with Mission Page
+ - Modified Map Page to have boundaries and scaling
  
  ### Lucy Cheng:
  - Add cultural events info on lore page
