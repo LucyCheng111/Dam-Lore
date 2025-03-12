@@ -47,7 +47,9 @@
  - update reports
  
  ### Sjoerd De Bruyn:
- 
+  - Attend group meeting
+  - Create engagment page
+  - polished map features and fixed dynamic functions
  
  
  ### Ben Breadon:
