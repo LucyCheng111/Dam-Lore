@@ -23,6 +23,7 @@
       <div class="tour-header">
         <h2 id="step-title" class="location-title"></h2>
         <div class="tour-controls">
+          <audio id="audio" src=""></audio>
         </div>
       </div>
       
@@ -181,7 +182,6 @@
       document.getElementById("prev").disabled = index === 0;
       document.getElementById("next").disabled = index === tourData.steps.length - 1;
     }
-    
     
     // Navigation event listeners
     document.getElementById("prev").addEventListener("click", () => {
