@@ -57,3 +57,7 @@
  ### Kairon Johnson:
  
  ### Amit Guha
+ - Added nature info to lore page
+ - Polished tour page images
+ - Changed aspects of css page
+ - attended group meeting
