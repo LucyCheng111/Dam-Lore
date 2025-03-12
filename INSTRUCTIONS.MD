@@ -16,4 +16,4 @@ To install python libraries type in the command `pip install <library_name>` in 
 ## Deploying the Web Application
 1. Open a terminal in the directory of the repository.
 2. Run in the command `python -m uvicorn app:app --reload`
-3. To see the website, go to [`127.0.0.1:8000`](127.0.0.1:8000) on your web browser.
+3. To see the website, go to [127.0.0.1:8000](127.0.0.1:8000) on your web browser.
