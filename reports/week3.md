@@ -22,6 +22,9 @@ implementing codes.
 # Contributions of individual team members
 
 ### Amit Guha:
+- Presented Project to the Class
+- Attended TA meeting
+- Discussed Project Design with team
 
 ### Dan Quan:
 - Added Project elicitation to the Live Document 
@@ -46,6 +49,3 @@ implementing codes.
 ### Ben Breadon:
 
 ### Kairon Johnson:
-
-### Amit Guha
-
