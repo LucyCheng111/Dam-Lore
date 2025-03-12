@@ -63,4 +63,7 @@ including layout improvements, interactive elements, and clearer navigation. We 
 ### Kairon Johnson:
 
 
-### Amit Guha
+### Amit Guha:
+- Worked on initial dynamic functionality for tour page
+- Framework for initial tour page
+- Attended group meeting
