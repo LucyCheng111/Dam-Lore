@@ -141,9 +141,11 @@
       document.getElementById("step-description").textContent = step.description;
       // Use a fallback image if the specific one isn't available
       const imageName = step.location.replace(/ /g, '_').toLowerCase();
+      
+      // Campus Tour
       if (imageName.includes("reser") || imageName.includes("stadium")) {
         document.getElementById("tour-img").src = "/static/reser.jpg";
-      } else if (imageName.includes("memorial") || imageName.includes("mu")) {
+      } else if (imageName.includes("memorial") && !(imageName.includes("concourse"))) {
         document.getElementById("tour-img").src = "/static/mu.jpg";
       } else if (imageName.includes("weatherford")) {
         document.getElementById("tour-img").src = "/static/weatherford.jpg";
@@ -153,10 +155,23 @@
         document.getElementById("tour-img").src = "/static/dixon.jpg";
       } else if (imageName.includes("linc")) {
         document.getElementById("tour-img").src = "/static/linc.jpg";
-      } else if (imageName.includes("sec")) {
+      } else if (imageName.includes("sec") && !(imageName.includes("craft"))) {
         document.getElementById("tour-img").src = "/static/sec.jpg";
       } else if (imageName.includes("valley")) {
         document.getElementById("tour-img").src = "/static/valleylib.jpg";
+      } else if (imageName.includes("beaver")) {
+        document.getElementById("tour-img").src = "/static/beav_store.jpg";
+      
+      // Nature tour
+      } else if (imageName.includes("prax")) {
+        document.getElementById("tour-img").src = "/static/prax.jpg";
+      } else if (imageName.includes("craft")){
+        document.getElementById("tour-img").src = "/static/craft_center.jpg";
+      } else if (imageName.includes("concourse")) {
+        document.getElementById("tour-img").src = "/static/MU_CG.jpg";
+      } else if (imageName.includes("fairbanks")) {
+        document.getElementById("tour-img").src = "/static/fairb.jpg";
+      
       } else {
         // Default fallback image
         document.getElementById("tour-img").src = "/static/benton.jpeg";
