@@ -36,37 +36,29 @@
           <h3>Suggest a Landmark</h3>
           <p>Did we miss your favorite landmark? Help us expand our collection by suggesting new locations to add to Dam-Lore. Your contributions help make this resource more valuable for everyone!</p>
           
-          <form method="POST" action="/submit-suggestion" class="suggestion-form">
+          <form method="POST" action="/engagement" class="suggestion-form">
             <div class="form-group">
-              <label for="landmark_name">Landmark Name:</label>
-              <input type="text" id="landmark_name" name="landmark_name" class="form-control" placeholder="e.g. Memorial Union" required>
+                <label for="name">Landmark Name:</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Memorial Union" required>
             </div>
-            
+        
             <div class="form-group">
-              <label for="location">Location:</label>
-              <input type="text" id="location" name="location" class="form-control" placeholder="e.g. 2501 SW Jefferson Way" required>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" class="form-control" placeholder="e.g. 2501 SW Jefferson Way" required>
             </div>
-
+        
             <div class="form-group">
-              <label for="description">Description (Optional):</label>
-              <textarea id="description" name="description" class="form-control" placeholder="Tell us what makes this landmark special..."></textarea>
+                <label for="description">Description (Optional):</label>
+                <textarea id="description" name="description" class="form-control" placeholder="Tell us what makes this landmark special..."></textarea>
             </div>
-            
+        
             <div class="form-group">
-              <label for="tag">Category:</label>
-              <select name="tag" id="tag" class="form-control">
-                <option value="">Select a category</option>
-                <option value="Building">Building</option>
-                <option value="Monument">Monument</option>
-                <option value="Nature">Nature</option>
-                <option value="Events">Events</option>
-                <option value="Restaurants">Restaurants</option>
-                <option value="Activity">Activity</option>
-              </select>
+                <label for="tag">Category (Optional):</label>
+                <input type="text" id="tag" name="tag" class="form-control" placeholder="e.g. Campus Building">
             </div>
-            
+        
             <button type="submit" class="feature-button">Submit Suggestion</button>
-          </form>
+        </form>
         </div>
       </div>
     </div>

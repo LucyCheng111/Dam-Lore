@@ -2,7 +2,7 @@ from fastapi import FastAPI, Form, Request, Query
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pymongo import MongoClient
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 
 app = FastAPI()
 
@@ -11,6 +11,7 @@ client = MongoClient(MONGO_URI)
 db = client["debruyns"]
 collection = db["landmarks"]
 tours = db["tours"]
+suggestions = db["engagement"]
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -110,4 +111,23 @@ async def get_itinerary(request:Request):
 @app.get("/engagement")
 async def get_engagement(request:Request):
     return templates.TemplateResponse("engagement.html", {"request": request})
+
+@app.post("/engagement")
+async def post_engagement(
+    request: Request,
+    name: str = Form(...),
+    location: str = Form(...),
+    description: str = Form(None),  # Make optional
+    tag: str = Form(None)  # Make optional
+):
+    landmark_suggestion = {
+        "name": name,
+        "location": location,
+        "description": description if description else "",  # Default to empty string
+        "tag": tag if tag else ""  # Default to empty string
+    }
+
+    suggestions.insert_one(landmark_suggestion)
+    return RedirectResponse(url="/engagement", status_code=303)
+    
 
