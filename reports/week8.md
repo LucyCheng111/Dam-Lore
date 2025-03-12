@@ -21,7 +21,10 @@ Also some people did not show up at the meeting, so they may fall behind schedul
 # Contributions of individual team members
 
 ### Amit Guha:
-
+ - Attended group meeting
+ - UI testing
+ - Fixed minor issues with styling
+   
 ### Dan Quan:
 - Attended Group Meeting
 - Added Restaurants to Database
@@ -55,5 +58,3 @@ Also some people did not show up at the meeting, so they may fall behind schedul
 ### Ben Breadon:
 
 ### Kairon Johnson:
-
-### Amit Guha
