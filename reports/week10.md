@@ -18,7 +18,10 @@
  # Contributions of individual team members
  
  ### Amit Guha:
- 
+  - Edit entry location for map page
+  - Create poster and submit to media hub
+  - Attended team meeting
+    
  ### Dan Quan:
  - Added 10 entry limit for map search ribbon
  - Fixed spacing with map search ribbon
@@ -39,5 +42,3 @@
  ### Ben Breadon:
  
  ### Kairon Johnson:
- 
- ### Amit Guha
