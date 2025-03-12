@@ -53,7 +53,15 @@
  
  
  ### Ben Breadon:
+- Engineered an intuitive tour progress tracking system showing step completion status
+- Completely restructured tour page layout using CSS flexbox for improved content accessibility
+- Implemented non-linear navigation system with clickable step indicators
+- Created "Back to All Tours" navigation link for improved user flow
+- Fixed critical image rendering issues using conditional path handling in JavaScript
+- Transformed itinerary page from basic list to visually engaging card-based grid system
+- Added "Why Take a Guided Tour?" benefits section to drive user engagement
+- Standardized OSU brand colors (#DC4405) across all components for visual consistency
+
+### Kairon Johnson:
  
- ### Kairon Johnson:
- 
- ### Amit Guha
+### Amit Guha

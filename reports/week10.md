@@ -37,7 +37,16 @@
  
  
  ### Ben Breadon:
- 
+- Revitalized engagement page with professional two-column layout and visual hierarchy
+- Enhanced suggestion form with additional fields and improved data validation
+- Created visual process workflow to clarify user expectations after form submission
+- Eliminated disruptive hover animations that were compromising tour page usability
+- Fine-tuned progress indicator spacing for better visual balance
+- Optimized responsive design for cross-device compatibility
+- Contributed to final presentation preparation and content
+- Conducted comprehensive testing across different browsers and devices
+- Documented code changes and improvements for future maintenance
+
  ### Kairon Johnson:
  
  ### Amit Guha
