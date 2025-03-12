@@ -23,13 +23,6 @@
       <div class="tour-header">
         <h2 id="step-title" class="location-title"></h2>
         <div class="tour-controls">
-          <button id="play-audio" class="audio-control">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            <span>Play Audio</span>
-          </button>
-          <audio id="audio" src=""></audio>
         </div>
       </div>
       
@@ -95,8 +88,6 @@
   <script>
     const tourData = {{ tour | tojson }};
     let currentStep = 0;
-    let audioPlaying = false;
-    const audioElement = document.getElementById("audio");
     const playButton = document.getElementById("play-audio");
     
     // Initialize the tour
@@ -119,18 +110,6 @@
       
       // Load the first step
       loadStep(0);
-      
-      // Set up audio controls
-      playButton.addEventListener("click", toggleAudio);
-      audioElement.addEventListener("ended", () => {
-        audioPlaying = false;
-        playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Play Audio</span>
-        `;
-      });
     }
     
     function loadStep(index) {
@@ -203,27 +182,6 @@
       document.getElementById("next").disabled = index === tourData.steps.length - 1;
     }
     
-    function toggleAudio() {
-      if (audioPlaying) {
-        audioElement.pause();
-        playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Play Audio</span>
-        `;
-      } else {
-        audioElement.play();
-        playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-          <span>Pause Audio</span>
-        `;
-      }
-      audioPlaying = !audioPlaying;
-    }
     
     // Navigation event listeners
     document.getElementById("prev").addEventListener("click", () => {
