@@ -20,18 +20,20 @@
  ### Amit Guha:
  
  ### Dan Quan:
- 
+ - Added 10 entry limit for map search ribbon
+ - Fixed spacing with map search ribbon
+
  ### Lucy Cheng:
  
  ### Michael Balzer:
  
  ### Sjoerd De Bruyn:
- Create team report
- Fix map sizing
- Edit entry locations to make map compatible 
- Connected engagement to new mongo collection 
- Polished website to get ready for presentation
- Created/Wrote week 10 progress report
+ - Create team report
+ - Fix map sizing
+ - Edit entry locations to make map compatible 
+ - Connected engagement to new mongo collection 
+ - Polished website to get ready for presentation
+ - Created/Wrote week 10 progress report
  
  
  ### Ben Breadon:

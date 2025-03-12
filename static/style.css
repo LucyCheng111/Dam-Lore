@@ -1079,27 +1079,6 @@
     /* ============================
     Itinerary
     ============================ */ 
-
-    /* Removing old tour-container styles that are causing hover effects */
-    /* 
-    .tour-container {
-      background: #ffffff;
-      border: 2px solid #DC4405;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px auto;
-      width: 80%;
-      max-width: 600px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .tour-container:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
-    */
     
     .tour-container h2 {
       font-size: 1.8rem;

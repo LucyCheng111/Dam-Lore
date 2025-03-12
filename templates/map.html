@@ -4,7 +4,7 @@
 
 <!--Hero Section-->
 {% block hero_title %}The Map{% endblock %}
-{% block hero_p %}Explore OSU and Corvallis with our custom map api{% endblock %}
+{% block hero_p %}Explore OSU and Corvallis with our custom map API{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -17,21 +17,27 @@
 
     <!-- Filter by Tag -->
     <div class="filter">
-      <form method="GET">
+      <form method="GET" class="filter-form">
         <label for="tag">Filter by Tag:</label>
         <select id="tag" name="tag">
           <option value="">All</option>
           {% for tag in available_tags %}
-            <option value="{{ tag }}" {% if tag == selected_tag %}selected{% endif %}>{{ tag }}</option>
+            <option value="{{ tag }}">{{ tag }}</option>
           {% endfor %}
         </select>
-        <button type="submit">Apply Filter</button>
+        <button type="button" id="applyFilter">Apply Filter</button>
       </form>
     </div>
 
     <div class="top-searched">
       <h3>Search Results</h3>
       <ul id="search-results"></ul>
+      <p id="no-results" style="display: none; text-align: center; font-weight: bold;">No results found.</p>
+      <div class="pagination">
+        <button id="prevPage" disabled><<</button>
+        <span id="pageInfo">Page 1 of 1</span>
+        <button id="nextPage" disabled>>></button>
+      </div>
     </div>
   </div>
 
@@ -43,6 +49,7 @@
     <div class="info-section" id="info-section">
       <h3>Marker Information</h3>
       <p>Select a location on the map or from the search ribbon to view more details.</p>
+      <img id="locationImg" src="" alt="Location Image" style="display: none; max-width: 100%; height: auto;">
     </div>
   </div>
 </div>
@@ -52,21 +59,27 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
 
-<!-- Pass markers to JavaScript as a JSON object -->
+<!-- JavaScript -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var markers = {{ markers | tojson }};
-    var selectedTag = "{{ selected_tag }}";
-    var map = L.map('map', {zoom:14, minZoom:12}).setView([44.5646, -123.2620], 14);
-    var infoSection = document.getElementById('info-section');
-    var searchInput = document.getElementById("search-input");
-    var searchResults = document.getElementById("search-results");
-    var markerLayer = L.layerGroup().addTo(map);
+    let markers = {{ markers | tojson }};
+    let map = L.map('map', {zoom:14, minZoom:12}).setView([44.5646, -123.2620], 14);
+    let infoSection = document.getElementById('info-section');
+    let searchInput = document.getElementById("search-input");
+    let searchResults = document.getElementById("search-results");
+    let imgElement = document.getElementById("locationImg");
+    let noResultsMessage = document.getElementById("no-results");
+    let markerLayer = L.layerGroup().addTo(map);
 
-    // Restrict map bounds (optional)
+    // Pagination variables
+    let currentPage = 1;
+    const itemsPerPage = 10;
+    let filteredMarkers = [...markers]; // Start with all markers
+
+    // Map Bounds
     var bounds = L.latLngBounds(
-      [44.53 - 0.09, -123.30 - 0.11], // Extend southwest corner
-      [44.62 + 0.09, -123.19 + 0.11]  // Extend northeast corner
+      [44.53 - 0.09, -123.30 - 0.11], 
+      [44.62 + 0.09, -123.19 + 0.11]
     );
     map.setMaxBounds(bounds);
     map.on('drag', function() {
@@ -77,18 +90,38 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    function addMarkers(filteredMarkers) {
+    function updateResults() {
       markerLayer.clearLayers();
       searchResults.innerHTML = "";
       
-      filteredMarkers.forEach(function(markerData) {
+      if (filteredMarkers.length === 0) {
+        noResultsMessage.style.display = "block";
+        document.getElementById("pageInfo").textContent = "Page 0 of 0";
+        document.getElementById("prevPage").disabled = true;
+        document.getElementById("nextPage").disabled = true;
+        return;
+      }
+
+      noResultsMessage.style.display = "none";
+
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = Math.min(start + itemsPerPage, filteredMarkers.length);
+      const paginatedMarkers = filteredMarkers.slice(start, end);
+
+      paginatedMarkers.forEach(function(markerData) {
         var marker = L.marker([markerData.lat, markerData.lng]).addTo(markerLayer);
         marker.bindPopup(`<span class="marker-title">${markerData.name}</span>`);
-        
+
         marker.on('click', function() {
           infoSection.innerHTML = `<h3>${markerData.name}</h3><p>${markerData.description}</p>`;
+          if (markerData.image) {
+            imgElement.src = markerData.image;
+            imgElement.style.display = "block";
+          } else {
+            imgElement.style.display = "none";
+          }
         });
-        
+
         var listItem = document.createElement("li");
         listItem.textContent = markerData.name;
         listItem.addEventListener("click", function() {
@@ -96,19 +129,76 @@
           marker.openPopup();
 
           infoSection.innerHTML = `<h3>${markerData.name}</h3><p>${markerData.description}</p>`;
+          if (markerData.image) {
+            imgElement.src = markerData.image;
+            imgElement.style.display = "block";
+          } else {
+            imgElement.style.display = "none";
+          }
         });
+
         searchResults.appendChild(listItem);
       });
+
+      document.getElementById("pageInfo").textContent = `Page ${currentPage} of ${Math.ceil(filteredMarkers.length / itemsPerPage)}`;
+      document.getElementById("prevPage").disabled = currentPage === 1;
+      document.getElementById("nextPage").disabled = end >= filteredMarkers.length;
     }
+
+    document.getElementById("applyFilter").addEventListener("click", function() {
+      const selectedTag = document.getElementById("tag").value;
+      filteredMarkers = selectedTag ? markers.filter(m => m.tag === selectedTag) : [...markers];
+      currentPage = 1;
+      updateResults();
+    });
+
+    document.getElementById("prevPage").addEventListener("click", function() {
+      if (currentPage > 1) {
+        currentPage--;
+        updateResults();
+      }
+    });
+
+    document.getElementById("nextPage").addEventListener("click", function() {
+      if (currentPage < Math.ceil(filteredMarkers.length / itemsPerPage)) {
+        currentPage++;
+        updateResults();
+      }
+    });
 
     searchInput.addEventListener("input", function () {
       var query = searchInput.value.toLowerCase();
-      var filteredMarkers = markers.filter(m => m.name.toLowerCase().includes(query));
-      addMarkers(filteredMarkers);
+      filteredMarkers = query ? markers.filter(m => m.name.toLowerCase().includes(query)) : [...markers];
+      currentPage = 1;
+      updateResults();
     });
-    
-    addMarkers(markers);
+
+    updateResults();
+   
   });
 </script>
+
+<!-- CSS for Pagination and No Results Message -->
+<style>
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .pagination button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  #pageInfo {
+    white-space: nowrap;
+  }
+  #no-results {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+  }
+</style>
 
 {% endblock %}
