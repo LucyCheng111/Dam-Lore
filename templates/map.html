@@ -8,48 +8,51 @@
 
 {% block content %}
 <div class="container">
-  <!-- Search Ribbon -->
-  <div class="search-ribbon">
-    <h2>Search</h2>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search locations...">
-    </div>
+  <!-- Flex container to hold Search Ribbon and Map Side by Side -->
+  <div class="map-container-wrapper">
+    <!-- Search Ribbon -->
+    <div class="search-ribbon">
+      <h2>Search</h2>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search locations...">
+      </div>
 
-    <!-- Filter by Tag -->
-    <div class="filter">
-      <form method="GET" class="filter-form">
-        <label for="tag">Filter by Tag:</label>
-        <select id="tag" name="tag">
-          <option value="">All</option>
-          {% for tag in available_tags %}
-            <option value="{{ tag }}">{{ tag }}</option>
-          {% endfor %}
-        </select>
-        <button type="button" id="applyFilter">Apply Filter</button>
-      </form>
-    </div>
+      <!-- Filter by Tag -->
+      <div class="filter">
+        <form method="GET" class="filter-form">
+          <label for="tag">Filter by Tag:</label>
+          <select id="tag" name="tag">
+            <option value="">All</option>
+            {% for tag in available_tags %}
+              <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+          </select>
+          <button type="button" id="applyFilter">Apply Filter</button>
+        </form>
+      </div>
 
-    <div class="top-searched">
-      <h3>Search Results</h3>
-      <ul id="search-results"></ul>
-      <p id="no-results" style="display: none; text-align: center; font-weight: bold;">No results found.</p>
-      <div class="pagination">
-        <button id="prevPage" disabled><<</button>
-        <span id="pageInfo">Page 1 of 1</span>
-        <button id="nextPage" disabled>>></button>
+      <div class="top-searched">
+        <h3>Search Results</h3>
+        <ul id="search-results"></ul>
+        <p id="no-results" style="display: none; text-align: center; font-weight: bold;">No results found.</p>
+        <div class="pagination">
+          <button id="prevPage" disabled><<</button>
+          <span id="pageInfo">Page 1 of 1</span>
+          <button id="nextPage" disabled>>></button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Map and Info Section -->
-  <div class="map-info-container">
-    <div class="map-container" id="map"></div>
+    <!-- Map and Info Section -->
+    <div class="map-info-container">
+      <div class="map-container" id="map"></div>
 
-    <!-- Info Section -->
-    <div class="info-section" id="info-section">
-      <h3>Marker Information</h3>
-      <p>Select a location on the map or from the search ribbon to view more details.</p>
-      <img id="locationImg" src="" alt="Location Image" style="display: none; max-width: 100%; height: auto;">
+      <!-- Info Section -->
+      <div class="info-section" id="info-section">
+        <h3>Marker Information</h3>
+        <p>Select a location on the map or from the search ribbon to view more details.</p>
+        <img id="locationImg" src="" alt="Location Image" style="display: none; max-width: 100%; height: auto;">
+      </div>
     </div>
   </div>
 </div>
@@ -178,8 +181,69 @@
   });
 </script>
 
-<!-- CSS for Pagination and No Results Message -->
 <style>
+  /* Ensures the whole page takes at least the full height */
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ensures container takes up remaining space */
+  }
+
+  .map-container-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%; /* Take up the full width of the screen */
+    margin: 0 auto;
+  }
+
+  .search-ribbon {
+    flex: 0 0 25%; /* Fixed width of 25% */
+    max-width: 300px;
+  }
+
+  .map-info-container {
+    flex: 1; /* Occupy the remaining space */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure the container takes full height */
+    max-width: 75%; /* Ensure the map info container does not exceed the map width */
+  }
+
+  /* Fixed map size */
+  .map-container {
+    height: 500px; /* Fixed height for the map */
+    width: 100%; /* Take full width of the container (75% of screen) */
+    flex-grow: 0; /* Prevents the map from resizing */
+    flex-shrink: 0; /* Prevents the map from shrinking */
+    overflow: hidden; /* Ensures no overflow */
+  }
+
+  /* Info section should have a fixed height and be scrollable */
+  .info-section {
+    margin-top: 20px;
+    flex-grow: 0; /* Prevents the info section from expanding */
+    height: 200px; /* Fixed height for the info section */
+    overflow-y: auto; /* Adds scroll if the info section overflows */
+    width: 1000px; /* Ensure the width matches the map width */
+  }
+
+  /* Footer styles */
+  footer {
+    margin-top: auto; /* Pushes the footer to the bottom of the container */
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+  }
+
   .pagination {
     display: flex;
     justify-content: center;
@@ -187,13 +251,16 @@
     gap: 10px;
     margin-top: 10px;
   }
+
   .pagination button {
     padding: 5px 10px;
     font-size: 14px;
   }
+
   #pageInfo {
     white-space: nowrap;
   }
+
   #no-results {
     text-align: center;
     font-weight: bold;
