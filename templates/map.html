@@ -65,8 +65,8 @@
 
     // Restrict map bounds (optional)
     var bounds = L.latLngBounds(
-      [44.53, -123.30], // Southwest corner
-      [44.62, -123.19]  // Northeast corner 
+      [44.53 - 0.09, -123.30 - 0.11], // Extend southwest corner
+      [44.62 + 0.09, -123.19 + 0.11]  // Extend northeast corner
     );
     map.setMaxBounds(bounds);
     map.on('drag', function() {
