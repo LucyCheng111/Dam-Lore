@@ -25,6 +25,10 @@
  ### Dan Quan:
  - Added 10 entry limit for map search ribbon
  - Fixed spacing with map search ribbon
+ - Fixed footer not sticking to the bottom on the map page
+ - Fixed dynamic sizing issues in the map page
+ - Attended Group Meeting
+ - Gave presentation on Final Project Presentation
 
  ### Lucy Cheng:
  
